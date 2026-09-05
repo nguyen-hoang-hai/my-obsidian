@@ -5,4 +5,3 @@ title: Electrical System
 
 ### [[ELV System]]
 
-![[Pasted image 20260905231423.png]]
