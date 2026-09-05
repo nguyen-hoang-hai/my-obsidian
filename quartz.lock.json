@@ -1,11 +1,4 @@
 {
   "version": "1.0.0",
-  "plugins": {
-    "my-obsidian": {
-      "source": "https://github.com/nguyen-hoang-hai/my-obsidian",
-      "resolved": "https://github.com/nguyen-hoang-hai/my-obsidian",
-      "commit": "944ff30b0828166f4b5f62353365d2dc661ef09a",
-      "installedAt": "2026-09-05T03:53:38.788Z"
-    }
-  }
+  "plugins": {}
 }
