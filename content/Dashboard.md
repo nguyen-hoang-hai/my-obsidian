@@ -1,5 +1,5 @@
 ---
-title: HỆ THỐNG ĐIỆN (ELECTRICAL SYSTEM)
+title: ELECTRICAL SYSTEM
 ---
 ## LV SYSTEM (LOW VOLTAGE SYSTEM)
 - [[Generator]]
