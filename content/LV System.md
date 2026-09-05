@@ -1,5 +1,5 @@
 ---
 title: LV System
 ---
-[[Generator]]
-[[Cable]]
+- [[Generator]]
+- [[Cable]]

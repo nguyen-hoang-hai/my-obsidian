@@ -1,6 +1,6 @@
 ---
 title: ELECTRICAL SYSTEM
 ---
-## [[LV System]]
+# [[LV System]]
 
-## [[ELV System]]
+# [[ELV System]]
