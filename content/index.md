@@ -1,10 +1,6 @@
 ---
 title: ELECTRICAL SYSTEM
 ---
-## LV SYSTEM (LOW VOLTAGE SYSTEM)
-- [[Generator]]
-- [[Cable]]
+## [[LV System]]
 
-## ELV SYSTEM (EXTRA-LOW VOLTAGE)
-- [[Public Address]]
-- [[EWIS]]
+## [[ELV System]]
