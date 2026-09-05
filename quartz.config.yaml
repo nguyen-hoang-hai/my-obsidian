@@ -1,13 +1,13 @@
 # yaml-language-server: $schema=./quartz/plugins/quartz-plugins.schema.json
 configuration:
-  pageTitle: Electrical Knowledge
+  pageTitle: Elec. Knowledge
   pageTitleSuffix: ""
   enableSPA: true
   enablePopovers: true
   analytics:
     provider: plausible
   locale: en-US
-  baseUrl: my-obsidian.2412nguyenhoanghai.workers.dev
+  baseUrl: nguyen-hoang-hai.github.io/my-obsidian/
   ignorePatterns:
     - private
     - templates
