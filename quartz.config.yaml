@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=./quartz/plugins/quartz-plugins.schema.json
 configuration:
-  pageTitle: Elec. Knowledge
+  pageTitle: My Docs
   pageTitleSuffix: ""
   enableSPA: true
   enablePopovers: true
@@ -16,6 +16,7 @@ configuration:
     fontOrigin: googleFonts
     cdnCaching: true
     typography:
+      title : Quicksand
       header: Quicksand
       body: Quicksand
       code: Quicksand
