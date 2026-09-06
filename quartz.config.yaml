@@ -16,10 +16,10 @@ configuration:
     fontOrigin: googleFonts
     cdnCaching: true
     typography:
-      title : Quicksand
-      header: Quicksand
-      body: Quicksand
-      code: Quicksand
+      title : Be Vietnam Pro
+      header: Be Vietnam Pro
+      body: Be Vietnam Pro
+      code: Be Vietnam Pro
     colors:
       lightMode:
         light: "#faf8f8"
