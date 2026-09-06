@@ -16,9 +16,9 @@ configuration:
     fontOrigin: googleFonts
     cdnCaching: true
     typography:
-      header: Roboto
-      body: Roboto
-      code: Roboto
+      header: Quicksand
+      body: Quicksand
+      code: Quicksand
     colors:
       lightMode:
         light: "#faf8f8"
