@@ -1,7 +1,7 @@
 ---
 title: Generator
 ---
-## Các hãng máy phát :
+## Các hãng máy phát điện :
 1. Rehlok.
 2. Caterpillar.
 3. Cummis.
