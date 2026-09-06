@@ -2,7 +2,7 @@
 title: Generator
 ---
 # Các hãng máy phát :
-## Rehlok
+## 1. Rehlok
 ![[Rehlko.png]]
-## Caterpillar
+## 2. Caterpillar
 ![[Caterpillar.png]]
