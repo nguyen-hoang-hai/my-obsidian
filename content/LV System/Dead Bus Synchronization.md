@@ -1,0 +1,3 @@
+---
+title: Dead Bus Synchronization
+---

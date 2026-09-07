@@ -7,6 +7,5 @@ title: Generator
 3. Cummis.
 
 ## Có 2 phương pháp hoà máy phát điện vào hệ thống :
-### Live Bus Synchronization.
-
-### Dead Bus Synchronization.
+1. [[Live Bus Synchronization]]
+2. [[Dead Bus Synchronization]]
