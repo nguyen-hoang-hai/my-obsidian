@@ -1,5 +1,5 @@
 ---
 title: LV System
 ---
-- [[Cable]]
-- [[Generator]]
+- [[Cable]] - Dây cáp.
+- [[Generator]] - Máy phát điện.
