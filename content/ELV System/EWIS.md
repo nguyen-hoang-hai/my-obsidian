@@ -1,4 +1,4 @@
 ---
-title: EWIS - Emergency Warning and Intercommunication System
+title: EWIS
 ---
 ## EWIS - Emergency Warning and Intercommunication System
