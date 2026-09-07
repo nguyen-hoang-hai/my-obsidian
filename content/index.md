@@ -6,7 +6,7 @@ title: Electrical System
 - Generator
 ---
 # [[ELV System]]
-- EWIS - Emergency Warning and Intercommunication System
+- EWIS
 - Public Address
 ---
 # [[Fire Safety System]]

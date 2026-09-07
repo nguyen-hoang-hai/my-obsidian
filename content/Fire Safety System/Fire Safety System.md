@@ -1,2 +1,3 @@
-- [[Fire Alarm]]
-- [[Exit & Emergency System]]
+---
+title: Fire Safety System
+---
