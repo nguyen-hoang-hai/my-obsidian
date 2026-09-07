@@ -155,7 +155,8 @@ plugins:
       priority: 50
   - source: "@quartz-community/graph"
     enabled: true
-    localGraph:
+    options:
+      localGraph:
         drag: true
         zoom: true
         depth: 1
