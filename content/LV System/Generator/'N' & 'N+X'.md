@@ -11,3 +11,4 @@ title: "'N' & 'N+X' Redundancy Models"
 >2N redundancy provides two complete units, modules, paths, or systems for every one required for a base system. ”Failure or maintenance of one entire unit, module, path, or system will not disrupt operations - TIA–942.
 ## '2N+1' Redundancy
 >2(N+1) redundancy provides two complete (N+1) units, modules, paths, or systems. Even in the event of failure or maintenance of one unit, module, path, or system, some redundancy will be provided and operations will not be disrupted - TIA–942.
+

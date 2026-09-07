@@ -15,4 +15,4 @@ title: Generator
 - Hệ thống 'N+1'.
 - Hệ thống 'N+2'.
 - Hệ thống '2N'.
-- Hệ thống '2(N+1)'
+- Hệ thống '2(N+1)'.
