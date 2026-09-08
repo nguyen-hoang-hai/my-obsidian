@@ -16,10 +16,10 @@ configuration:
     fontOrigin: googleFonts
     cdnCaching: true
     typography:
-      title : Schibsted Grotesk
-      header: Schibsted Grotesk
-      body: Source Sans Pro
-      code: IBM Plex Mono
+      title : Inter
+      header: Inter
+      body: Inter
+      code: Inter
     colors:
       lightMode:
         light: "#faf8f8"
