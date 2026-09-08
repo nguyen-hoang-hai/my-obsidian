@@ -2,8 +2,8 @@
 title: Electrical System
 ---
 # [[LV System]]
-- Cable
-- Generator
+- Circuit Breaker & Cable
+- Electric Generator
 ---
 # [[ELV System]]
 - EWIS

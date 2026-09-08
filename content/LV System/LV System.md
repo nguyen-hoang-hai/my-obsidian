@@ -1,5 +1,5 @@
 ---
 title: LV System
 ---
-- [[Cable]] - Dây cáp.
+- [[Circuit Breaker & Cable]] - Thiết bị đóng cắt và cáp điện.
 - [[Electric Generator]]- Máy phát điện.
