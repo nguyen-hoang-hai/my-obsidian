@@ -16,4 +16,3 @@ title: "'N' & 'N+X' Redundancy Models"
 ## '2N+1' Redundancy
 >Tiêu chuẩn ANSI/TIA-942 :
 >>2(N+1) redundancy provides two complete (N+1) units, modules, paths, or systems. Even in the event of failure or maintenance of one unit, module, path, or system, some redundancy will be provided and operations will not be disrupted.
-
