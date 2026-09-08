@@ -2,4 +2,4 @@
 title: LV System
 ---
 - [[Cable]] - Dây cáp.
-- [[Generator]] - Máy phát điện.
+- [[Electric Generator]]- Máy phát điện.

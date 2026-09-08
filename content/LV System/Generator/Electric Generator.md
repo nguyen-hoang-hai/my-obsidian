@@ -1,5 +1,5 @@
 ---
-title: Generator
+title: Electric Generator
 ---
 ## Các hãng máy phát điện :
 1. Rehlok.

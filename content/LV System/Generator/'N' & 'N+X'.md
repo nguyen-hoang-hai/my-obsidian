@@ -5,7 +5,7 @@ title: "'N' & 'N+X' Redundancy Models"
 >TIA–942
 >>System meets base requirements and has no redundancy.
 ## 'N+1' Redundancy
->>TIA–942
+>TIA–942
 >>N+1 redundancy provides one additional unit, module, path, or system in addition to the minimum required to satisfy the base requirement. The failure or maintenance of any single unit, module, or path will not disrupt operations.
 ## 'N+2' Redundancy
 >TIA–942
