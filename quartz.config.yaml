@@ -88,21 +88,21 @@ plugins:
       renderEngine: katex
     order: 80
   - source: "@quartz-community/citations"
-    enabled: true
+    enabled: false
     order: 85
   - source: "@quartz-community/hard-line-breaks"
-    enabled: true
+    enabled: false
     order: 90
   - source: "@quartz-community/ox-hugo"
-    enabled: true
+    enabled: false
     order: 91
   - source: "@quartz-community/roam"
-    enabled: true
+    enabled: false
     order: 92
   - source: "@quartz-community/quartz-fonts"
     enabled: true
   - source: "@quartz-themes/core"
-    enabled: true
+    enabled: false
     options:
       theme: tokyo-night
       mode: both
