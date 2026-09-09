@@ -24,9 +24,11 @@ title: Generator Ratings
 
 ---
 # Tham khảo (References)
-
-- ISO 8528-1:2018 :
+- Tiêu chuẩn ISO 8528-1:2018 :
 ![[ISO 8528-1_2018.pdf]]
 
 - TCVN 9729-1:2013 :
 ![[TCVN 9729-1_2013.pdf]]
+
+- Tài liệu hãng Cummis :
+![[Ratings & Performance (Cummis).pdf]]
