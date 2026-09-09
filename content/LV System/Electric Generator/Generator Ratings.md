@@ -12,10 +12,10 @@ title: Generator Ratings
 
 |                                |              COP               |               PRP               |              LTP               |               ESP               |      DCP       |
 | :----------------------------: | :----------------------------: | :-----------------------------: | :----------------------------: | :-----------------------------: | :------------: |
-| Loại tải<br>([[Load profile]]) | Tải cố định<br>(Contanst Load) | Tải biến đổi<br>(Variable Load) | Tải cố định<br>(Contanst Load) | Tải biến đổi<br>(Variable Load) | Cả 2<br>(Both) |
+| Loại tải<br>([[Load Profile]]) | Tải cố định<br>(Contanst Load) | Tải biến đổi<br>(Variable Load) | Tải cố định<br>(Contanst Load) | Tải biến đổi<br>(Variable Load) | Cả 2<br>(Both) |
 |                                |                                |                                 |                                |                                 |                |
-|                                |                                |                                 |                                |                                 |                |
-|                                |                                |                                 |                                |                                 |                |
+
+
 
 ---
 - Đối với hãng Mitsubishi vẫn có 5 cấp độ theo ISO 8528-1 :
