@@ -10,10 +10,10 @@ title: Generator Ratings
 - Dựa theo ISO 8528-1:2018 có đề cập tới cấp độ công suất thứ 5 là :
 	- Công suất cho trung tâm dữ liệu (DCP - Data Center Power).
 
-|     | COP | PRP | LTP | ESP | DCP |
-| :-: | :-: | :-: | :-: | :-: | :-: |
-|     |     |     |     |     |     |
-|     |     |     |     |     |     |
+|                            |                COP                 |                 PRP                 |                LTP                 |                 ESP                 |      DCP       |
+| :------------------------: | :--------------------------------: | :---------------------------------: | :--------------------------------: | :---------------------------------: | :------------: |
+| Loại tải<br>(Load profile) | Tải cố định<br>([[Contanst Load]]) | Tải biến đổi<br>([[Variable Load]]) | Tải cố định<br>([[Contanst Load]]) | Tải biến đổi<br>([[Variable Load]]) | Cả 2<br>(Both) |
+|                            |                                    |                                     |                                    |                                     |                |
 
 ---
 - Đối với hãng Mitsubishi vẫn có 5 cấp độ theo ISO 8528-1 :
