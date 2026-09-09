@@ -21,3 +21,12 @@ title: Generator Ratings
 
 - Nhưng một số hãng như Rehlok thì chỉ quy về 2 cấp độ PRP và ESP thôi.
 ![[Rehlok Generator Ratings.png]]
+
+---
+# Tham khảo (References)
+
+- ISO 8528-1:2018 :
+![[ISO 8528-1_2018.pdf]]
+
+- TCVN 9729-1:2013 :
+![[TCVN 9729-1_2013.pdf]]
