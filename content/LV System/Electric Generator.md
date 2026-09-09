@@ -22,3 +22,4 @@ title: Electric Generator
 - Công suất chính kế (PRP - Prime Power).
 - Công suất hoạt động trong thời gian giới hạn (LTP - Limited-Time Running Power).
 - Công suất dự phòng ở chế độ khẩn cấp (ESP - Emergencty Standby Power).
+- Công suất cho trung tâm dữ liệu (DCP - Data Center Power).

@@ -8,11 +8,16 @@ title: Generator Ratings
 	- Công suất dự phòng ở chế độ khẩn cấp (ESP - Emergencty Standby Power).
 
 - Dựa theo ISO 8528-1:2018 có đề cập tới cấp độ công suất thứ 5 là :
-	- DCP - Data Center Power.
+	- Công suất cho trung tâm dữ liệu (DCP - Data Center Power).
+
+|     | COP | PRP | LTP | ESP | DCP |
+| :-: | :-: | :-: | :-: | :-: | :-: |
+|     |     |     |     |     |     |
+|     |     |     |     |     |     |
+
 ---
 - Đối với hãng Mitsubishi vẫn có 5 cấp độ theo ISO 8528-1 :
 ![[Mitsubishi Generator Ratings.png]]
 
 - Nhưng một số hãng như Rehlok thì chỉ quy về 2 cấp độ PRP và ESP thôi.
 ![[Rehlok Generator Ratings.png]]
-
