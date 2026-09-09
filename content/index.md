@@ -17,6 +17,6 @@ title: Electrical System
 # [[Protection System]]
 - Earthing & Grounding System
 - Lightning System
-
-## [[Solutions]]
+---
+# [[Solutions]]
 - Smart Building - SE
