@@ -14,5 +14,5 @@ title: Generator Ratings
 ![[Mitsubishi Generator Ratings.png]]
 
 - Nhưng một số hãng như Rehlok thì chỉ quy về 2 cấp độ PRP và ESP thôi.
-![[Pasted image 20260909131848.png]]
+![[Rehlok Generator Ratings.png]]
 
