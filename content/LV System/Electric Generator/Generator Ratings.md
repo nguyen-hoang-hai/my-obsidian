@@ -23,7 +23,7 @@ title: Generator Ratings
 ![[Rehlok Generator Ratings.png]]
 
 ---
-# Tham khảo (References)
+## Tham khảo (References)
 - Tiêu chuẩn ISO 8528-1:2018 :
 ![[ISO 8528-1_2018.pdf]]
 

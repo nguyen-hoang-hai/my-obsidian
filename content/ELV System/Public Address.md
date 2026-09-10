@@ -8,7 +8,6 @@ title: Public Address
 $$
 M (dB) = S + 10*log(W) - 20 *log D (m)
 $$
-
 - Đối với loa trần cho khu vực văn phòng, khoảng cách hãng TOA khuyến nghị ở bảng dưới :
 
 |   Mục đích   |              Độ cao của trần               | Khoảng cách giữa loa |          Vùng phủ thanh của loa           |
@@ -17,7 +16,7 @@ $$
 |  Thông báo   |                     -                      |      9 đến 12m       |               81 đến 144m²                |
 - Đối với loa còi (nén) cho khu vực tầng hầm hoặc các nhà máy thì khoảng cách được TOA khuyến nghị từ 20m đến 30m và lắp đặt loa ở độ cao lớn hơn 4m.
 ---
-# Tham khảo (References)
+## Tham khảo (References)
 - Trang web thiết kế PA design của TOA : [PA System Design | What is a Public Address System?](https://www.sound-toa.com/tech_main.html)
 
 - Tài liệu hãng TOA :
