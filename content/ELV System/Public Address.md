@@ -15,12 +15,7 @@ $$
 | :----------: | :----------------------------------------: | :------------------: | :---------------------------------------: |
 | <br>Nhạc nền | Thấp hơn 2.5m<br>2.5m - 4.5m<br>4.5m - 15m |    5m<br>6m<br>9m    | Khoảng 25m²<br>Khoảng 36m²<br>Khoảng 81m² |
 |  Thông báo   |                     -                      |      9 đến 12m       |               81 đến 144m²                |
-![[Vùng phủ âm thanh của loa trần.png]]
-
 - Đối với loa còi (nén) cho khu vực tầng hầm hoặc các nhà máy thì khoảng cách được TOA khuyến nghị từ 20m đến 30m và lắp đặt loa ở độ cao lớn hơn 4m.
-
-![[Vùng phủ âm thanh của loa còi.png]]
-
 ---
 # Tham khảo (References)
 - Trang web thiết kế PA design của TOA : [PA System Design | What is a Public Address System?](https://www.sound-toa.com/tech_main.html)
