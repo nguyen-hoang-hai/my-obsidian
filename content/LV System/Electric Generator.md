@@ -6,7 +6,7 @@ title: Electric Generator
 2. Caterpillar.
 3. Cummis.
 
-## 2 phương pháp hoà máy phát điện ([[Generator Synchronization]]) vào hệ thống :
+## 2 phương pháp hoà máy phát điện ([[Generator Synchronization]]) :
 - Live Bus Synchronization
 - Dead Bus Synchronization
 
