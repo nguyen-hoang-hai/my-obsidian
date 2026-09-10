@@ -5,17 +5,8 @@ title: Public Address
 
 - Công thức tính cường độ suy hao âm thanh :
 $$
-M (dB) = P (dBspl) - 20 *log D (m)
-$$
-- Với :
-$$
-	P = S + 10*log(W)
-$$
-- Nên công thức ta có được : 
-$$
 M (dB) = S + 10*log(W) - 20 *log D (m)
 $$
-Nguồn : [Sound Attenuation by Distance](https://www.sound-toa.com/attdst.html)
 
 - Đối với loa trần cho khu vực văn phòng, khoảng cách hãng TOA khuyến nghị ở bảng dưới :
 
@@ -29,5 +20,7 @@ Nguồn : [Sound Attenuation by Distance](https://www.sound-toa.com/attdst.html)
 
 ---
 # Tham khảo (References)
+- Trang web thiết kế PA design của TOA : https://www.sound-toa.com/attdst.html
+
 - Tài liệu hãng TOA :
 ![[TOA_Ứng Dụng & Tiêu Chuẩn Kỹ Thuật.pdf]]
