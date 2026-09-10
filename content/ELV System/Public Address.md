@@ -25,7 +25,7 @@ $$
 |  Thông báo   |                     -                      |      9 đến 12m       |               81 đến 144m²                |
 	![[Pasted image 20260910132650.png]]
 - Đối với loa còi (nén) cho khu vực tầng hầm hoặc các nhà máy thì khoảng cách được TOA khuyến nghị từ 20m đến 30m và lắp đặt loa ở độ cao lớn hơn 4m.
-	![[Pasted image 20260910132707.png]]
+	![[Vùng phủ âm thanh của loa còi.png]]
 
 ---
 # Tham khảo (References)
