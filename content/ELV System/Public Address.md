@@ -20,7 +20,7 @@ $$
 
 ---
 # Tham khảo (References)
-- Trang web thiết kế PA design của TOA : https://www.sound-toa.com/attdst.html
+- Trang web thiết kế PA design của TOA : [PA System Design | What is a Public Address System?](https://www.sound-toa.com/tech_main.html)
 
 - Tài liệu hãng TOA :
 ![[TOA_Ứng Dụng & Tiêu Chuẩn Kỹ Thuật.pdf]]
