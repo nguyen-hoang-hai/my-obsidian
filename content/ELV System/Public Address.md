@@ -1,7 +1,7 @@
 ---
 title: Public Address
 ---
-	Việc bố trí hệ thống loa phát thanh cho công trình căn cứ vào tài liệu khuyến nghị của hãng TOA đã đưa ra. Sau khi xác định được khoảng cách, công suất, cường độ của loa đó thì bắt đầu tính toán cường độ suy hao để xem với khoảng cách loa và thông số như vậy có thoả được điều kiện của QCVN và TCVN hay không.
+- Việc bố trí hệ thống loa phát thanh cho công trình căn cứ vào tài liệu khuyến nghị của hãng TOA đã đưa ra. Sau khi xác định được khoảng cách, công suất, cường độ của loa đó thì bắt đầu tính toán cường độ suy hao để xem với khoảng cách loa và thông số như vậy có thoả được điều kiện của QCVN và TCVN hay không.
 
 - Công thức tính cường độ suy hao âm thanh :
 $$
