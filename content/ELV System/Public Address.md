@@ -1,6 +1,22 @@
 ---
 title: Public Address
 ---
+- Việc bố trí hệ thống loa phát thanh cho công trình căn cứ vào tài liệu khuyến nghị của hãng TOA đã đưa ra. Sau khi xác định được khoảng cách, công suất, cường độ của loa đó thì bắt đầu tính toán cường độ suy hao để xem với khoảng cách loa và thông số như vậy có thoả được điều kiện của QCVN và TCVN hay không.
+
+- Công thức tính cường độ suy hao âm thanh :
+$$
+M (dB) = P (dBspl) - 20 *log D (m)
+$$
+	Với :
+$$
+	P = S + 10*log(W)
+$$
+	Nên công thức ta có được : 
+$$
+M (dB) = S + 10*log(W) - 20 *log D (m)
+$$
+	Nguồn : [Sound Attenuation by Distance](https://www.sound-toa.com/attdst.html)
+
 - Đối với loa trần cho khu vực văn phòng, khoảng cách hãng TOA khuyến nghị ở bảng dưới :
 
 |   Mục đích   |              Độ cao của trần               | Khoảng cách giữa loa |          Vùng phủ thanh của loa           |
