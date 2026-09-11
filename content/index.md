@@ -4,9 +4,14 @@ title: Electrical System
 # [[LV System]]
 - Circuit Breaker & Cable
 - Capacitor Bank
-- Electric Generator
 ---
-# [[ELV System]]
+# [[Generator]]
+- Generator Synchronization
+- 'N' & 'N+X' Redundancy
+- Generator Ratings
+- Emergency Generator Topologies
+---
+ [[ELV System]]
 - EWIS
 - Public Address
 ---

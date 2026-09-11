@@ -1,5 +1,5 @@
 ---
-title: "'N' & 'N+X' Redundancy Models"
+title: "'N' & 'N+X' Redundancy"
 ---
 ## 'N' - Base requirement
 >Tiêu chuẩn ANSI/TIA-942 :
