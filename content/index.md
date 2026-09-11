@@ -3,6 +3,7 @@ title: Electrical System
 ---
 # [[LV System]]
 - Circuit Breaker & Cable
+- Cable Tray
 - Capacitor Bank
 ---
 # [[Generator]]
