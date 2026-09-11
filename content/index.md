@@ -17,11 +17,11 @@ title: Electrical System
 ---
 # [[Fire Safety System]]
 - Fire Alarm
-- Exit & Emergency System
+- Exit & Emergency
 ---
 # [[Protection System]]
-- Earthing & Grounding System
-- Lightning System
+- Earthing & Grounding
+- Lightning
 ---
 # [[Solutions]]
 - Smart Building - SE

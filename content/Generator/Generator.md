@@ -1,26 +1,27 @@
 ---
 title: Generator
 ---
-# Các hãng máy phát điện :
+## Các hãng máy phát điện :
 1. Rehlok.
 2. Caterpillar.
 3. Cummis.
-# 2 phương pháp hoà máy phát điện ([[Generator Synchronization]]) :
-- Live Bus Synchronization
-- Dead Bus Synchronization
-# Các loại hệ thống dự phòng [['N' & 'N+X']] :
+4. Mitsubishi.
+## 2 phương pháp hoà máy phát điện ([[Generator Synchronization]]) :
+- Live Bus Synchronization.
+- Dead Bus Synchronization.
+## Các loại hệ thống dự phòng [['N' & 'N+X']] :
 - Hệ thống 'N'.
 - Hệ thống 'N+1'.
 - Hệ thống 'N+2'.
 - Hệ thống '2N'.
 - Hệ thống '2(N+1)'.
-# 5 cấp độ công suất của máy phát điện ([[Generator Ratings]]) được nêu trong TCVN 9729-1:2013 (ISO 8528-1) :
+## 5 cấp độ công suất của máy phát điện ([[Generator Ratings]]) được nêu trong TCVN 9729-1:2013 (ISO 8528-1) :
 - Công suất liên tục (COP - Continuous Power).
 - Công suất chính kế (PRP - Prime Power).
 - Công suất hoạt động trong thời gian giới hạn (LTP - Limited-Time Running Power).
 - Công suất dự phòng ở chế độ khẩn cấp (ESP - Emergencty Standby Power).
 - Công suất cho trung tâm dữ liệu (DCP - Data Center Power).
-# Các kiến trúc đấu nối máy phát điện dự phòng ([[Emergency Generator Topologies]]) :
+## Các kiến trúc đấu nối máy phát điện dự phòng ([[Emergency Generator Topologies]]) :
 - LVDC (Low Voltage Direct Coupled).
 - MV Ring.
 - MVDC (Medium Voltage Direct Coupled).
