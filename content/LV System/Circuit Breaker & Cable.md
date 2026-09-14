@@ -9,5 +9,6 @@ $$
 $$
 \Rightarrow I_{CB}=1.2\times I_{tt}  
 $$
-- Tính chọn lọc [[Selectivity]] ?
+- [[Selectivity]] ?
 - [[Cascading]] ?
+
