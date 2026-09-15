@@ -12,9 +12,12 @@ System meets base requirements and has no redundancy.
 
 ```
 N+1 redundancy provides one additional unit, module, path, or system in addition to the minimum required to satisfy the base requirement. The failure or maintenance of any single unit, module, or path will not disrupt operations.
+```
+
 ## 'N+2' Redundancy
->Tiêu chuẩn ANSI/TIA-942 :
->>N+2 redundancy provides two additional units, modules, paths, or systems in addition to the minimum required to satisfy the base requirement. The failure or maintenance of any two single units, modules, or paths will not disrupt operations.
+
+```
+N+2 redundancy provides two additional units, modules, paths, or systems in addition to the minimum required to satisfy the base requirement. The failure or maintenance of any two single units, modules, or paths will not disrupt operations.
 ```
 ## '2N' Redundancy
 
