@@ -10,4 +10,5 @@ $$
 \Rightarrow I_{CB}=1.2\times I_{tt}  
 $$
 - Refer số mạch và size cáp với từng loại MCB / MCCB (Cách này chỉ được estiamte ở trong trường hợp đang làm bộ Concept): 
+
 ![[Size Cable Base On MCB, MCCB.png]]
