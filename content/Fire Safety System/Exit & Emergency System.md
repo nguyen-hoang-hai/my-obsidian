@@ -1,6 +1,9 @@
 ---
 title: Exit & Emergency System
 ---
+## Hệ thống biển báo chỉ dẫn thoát nạn.
+## Hê thống chiếu sáng sự cố.
+## Sơ đồ đấu nối đèn Exit & đèn Emer.
 - Đèn exit luôn luôn hoạt động kể cả trong điều kiện hoạt động bình thường và sự cố.
 - Mỗi đèn exit đều được trang bị thêm một bộ battery luôn luôn được sạc đầy. Khi xảy ra sự cố thì đèn exit vẫn sử dụng nguồn điện được cấp tới từ tủ DB tầng cho tới khi nguồn điện đó bị ngắt thì mới bắt đầu sử dụng nguồn điện từ battery cho tới khi hết pin.
 
