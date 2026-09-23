@@ -5,6 +5,12 @@ title: Electrical System
 - Circuit Breaker & Cable
 - Cable Tray
 - Capacitor Bank
+- Socket Outlet
+---
+## [[UPS]]
+- VFD
+- VI
+- VFI
 ---
 # [[Generator]]
 - Generator Synchronization
