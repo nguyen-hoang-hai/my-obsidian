@@ -162,36 +162,36 @@ plugins:
   - source: github:quartz-community/graph
     enabled: true
     options:
-      # Graph nhỏ ở sidebar phải — tinh chỉnh cho mượt & thoáng giống Obsidian
+      # Graph nhỏ ở sidebar phải — tinh chỉnh mượt & thoáng
       localGraph:
         drag: true
         zoom: true
         depth: 1
-        scale: 1.15
-        repelForce: 0.9          # đẩy node xa nhau hơn -> đỡ chồng chữ
-        centerForce: 0.28
-        linkDistance: 55         # dây dài hơn -> chữ đỡ đè nhau
-        fontSize: 0.42           # chữ nhỏ lại cho cân với node
+        scale: 1.1
+        repelForce: 1.5          # lực đẩy mạnh hơn để không chồng chữ
+        centerForce: 0.2
+        linkDistance: 80         # khoảng cách dây rộng rãi
+        fontSize: 0.44
         opacityScale: 1.1
-        removeTags: []
-        showTags: true
-        focusOnHover: true       # hover node -> làm mờ node không liên quan (giống Obsidian)
+        removeTags: ["#"]
+        showTags: false          # lọc bỏ tag rác
+        focusOnHover: true       # hover node làm mờ node không liên quan
         enableRadial: false
       # Graph toàn cục (bấm icon graph hoặc Ctrl/Cmd + G để mở fullscreen)
       globalGraph:
         drag: true
         zoom: true
         depth: -1
-        scale: 0.85
-        repelForce: 1.1          # cụm tách rõ ràng, không dính chùm
-        centerForce: 0.2
-        linkDistance: 70
-        fontSize: 0.45
+        scale: 0.8
+        repelForce: 2.4          # lực đẩy cực đại để 7 cụm tự động dạt xa nhau
+        centerForce: 0.1         # lực hút tâm nhẹ để đồ thị bung tỏa thoáng đãng
+        linkDistance: 120        # dây dài 120px cho không gian thở
+        fontSize: 0.48
         opacityScale: 1.2
-        removeTags: []
-        showTags: true
-        focusOnHover: true
-        enableRadial: true
+        removeTags: ["#"]
+        showTags: false          # lọc bỏ tag rác trôi nổi
+        focusOnHover: true       # rọi sáng cụm đang hover
+        enableRadial: false      # TẮT vòng tròn gò bó -> bung tỏa tự nhiên theo chòm sao
     layout:
       position: right
       priority: 10

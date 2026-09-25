@@ -364,13 +364,14 @@ a.internal {
 }
 
 #global-graph-outer {
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 #global-graph-container {
   border-radius: 8px;
-  border: 1px solid var(--lightgray);
+  border: 1px solid var(--secondary);
+  box-shadow: 0 0 40px rgba(56, 189, 248, 0.14);
 }
 
 // ------------------------------------------------------------
