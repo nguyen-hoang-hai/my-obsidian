@@ -1,3 +1,139 @@
-@use "./variables.scss" as *;
+// ============================================================
+// custom.scss — Data Center / Electrical Engineering theme
+// Đặt file này vào: quartz/styles/custom.scss
+// ============================================================
 
-// put your custom CSS here!
+// ---------- 1. Layout tổng thể ----------
+.page {
+  max-width: 1500px;
+}
+
+.center article {
+  border-radius: 16px;
+  padding: 2rem 2.5rem;
+}
+
+// ---------- 2. Sidebar kính mờ (glassmorphism nhẹ) ----------
+.left.sidebar,
+.right.sidebar {
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  background-color: rgba(11, 18, 32, 0.55); // chỉ rõ ở dark mode
+  border-radius: 12px;
+}
+
+// ---------- 3. Card cho Explorer / Folder ----------
+.explorer-item {
+  border-radius: 8px;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.explorer-item:hover {
+  background-color: var(--highlight);
+  transform: translateX(2px);
+}
+
+// ---------- 4. Code block đẹp hơn ----------
+pre {
+  border-radius: 10px;
+  border: 1px solid var(--lightgray);
+}
+
+code {
+  border-radius: 6px;
+}
+
+// ---------- 5. Callout theo màu Data Center ----------
+.callout {
+  border-radius: 10px;
+  border-left-width: 4px;
+}
+
+.callout[data-callout="note"] {
+  border-left-color: #38bdf8; // xanh điện
+}
+
+.callout[data-callout="tip"],
+.callout[data-callout="success"] {
+  border-left-color: #22c55e; // xanh lá
+}
+
+.callout[data-callout="warning"],
+.callout[data-callout="caution"] {
+  border-left-color: #f59e0b; // vàng cam cảnh báo
+}
+
+.callout[data-callout="danger"],
+.callout[data-callout="error"] {
+  border-left-color: #ef4444; // đỏ sự cố
+}
+
+.callout[data-callout="important"] {
+  border-left-color: #818cf8; // tím indigo
+}
+
+// ---------- 6. Bảng dữ liệu kỹ thuật (catalogue, cable sizing...) ----------
+table {
+  border-radius: 8px;
+  overflow: hidden;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+thead th {
+  background-color: var(--lightgray);
+  font-weight: 600;
+}
+
+tbody tr:hover {
+  background-color: var(--highlight);
+}
+
+// ---------- 7. Card dashboard (dùng trong index.md) ----------
+.eng-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.eng-card {
+  display: block;
+  padding: 1.25rem;
+  border-radius: 14px;
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  text-decoration: none !important;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.eng-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--secondary);
+  box-shadow: 0 8px 24px rgba(56, 189, 248, 0.15);
+}
+
+.eng-card h3 {
+  margin: 0 0 0.35rem 0;
+  color: var(--secondary);
+}
+
+.eng-card p {
+  margin: 0;
+  color: var(--darkgray);
+  font-size: 0.9rem;
+}
+
+// ---------- 8. Tag hiển thị như chip (pill) ----------
+.tag-link {
+  border-radius: 999px;
+  padding: 0.15rem 0.7rem;
+  background-color: var(--highlight);
+  border: 1px solid var(--secondary);
+}
+
+// ---------- 9. Graph & TOC bo góc đồng bộ ----------
+#graph-container,
+.toc {
+  border-radius: 12px;
+}
