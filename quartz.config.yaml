@@ -170,8 +170,8 @@ plugins:
         scale: 1.15
         repelForce: 0.9          # đẩy node xa nhau hơn -> đỡ chồng chữ
         centerForce: 0.28
-        linkDistance: 42         # dây dài hơn, nhìn thoáng
-        fontSize: 0.55
+        linkDistance: 55         # dây dài hơn -> chữ đỡ đè nhau
+        fontSize: 0.42           # chữ nhỏ lại cho cân với node
         opacityScale: 1.1
         removeTags: []
         showTags: true
@@ -185,8 +185,8 @@ plugins:
         scale: 0.85
         repelForce: 1.1          # cụm tách rõ ràng, không dính chùm
         centerForce: 0.2
-        linkDistance: 55
-        fontSize: 0.6
+        linkDistance: 70
+        fontSize: 0.45
         opacityScale: 1.2
         removeTags: []
         showTags: true
