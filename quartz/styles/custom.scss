@@ -1,13 +1,16 @@
 // ============================================================
-//  custom.scss — Electrical / Data Center theme for Quartz v5
+//  custom.scss — SCADA / Industrial Console Theme for Quartz v5
+//  Phong cách: Bảng điều khiển Giám sát Cơ Điện / Phòng Máy Data Center
 //  Đặt tại: quartz/styles/custom.scss
 // ============================================================
 
 // ------------------------------------------------------------
-//  1. Khung trang & Nền lưới kỹ thuật (Engineering Blueprint Grid)
+//  1. Nền lưới CAD / SCADA (Industrial Blueprint Grid)
 // ------------------------------------------------------------
 body {
-  background-image: radial-gradient(circle, var(--lightgray) 1px, transparent 1px);
+  background-image:
+    linear-gradient(to right, rgba(148, 163, 184, 0.09) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(148, 163, 184, 0.09) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
@@ -16,26 +19,42 @@ body {
 }
 
 .center article {
-  border-radius: 14px;
+  border-radius: 8px;
   padding: 2rem 2.5rem;
   line-height: 1.7;
 }
 
 // ------------------------------------------------------------
-//  2. Hero — khối tiêu đề trang chủ (Độ tương phản cao)
+//  2. Hero — Bảng điều khiển trung tâm (Control Console Header)
 // ------------------------------------------------------------
 .hero {
-  margin: 0 0 2.5rem;
-  padding: 2.5rem 2rem;
-  border-radius: 16px;
+  position: relative;
+  margin: 0 0 2rem;
+  padding: 2rem 2.2rem;
+  border-radius: 8px;
   border: 1px solid var(--lightgray);
-  background:
-    radial-gradient(circle at 15% 20%, rgba(56, 189, 248, 0.16), transparent 55%),
-    radial-gradient(circle at 85% 80%, rgba(129, 140, 248, 0.14), transparent 55%);
+  background-color: var(--light);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+
+  // Chỉ báo trạng thái vận hành hệ thống (Status Telemetry)
+  &::before {
+    content: "● SYS::ONLINE  //  M&E INFRASTRUCTURE DATABASE  //  STANDARDS: IEC · ISO · TCVN";
+    display: inline-block;
+    font-family: var(--codeFont);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: #16a34a;
+    background: rgba(22, 163, 74, 0.1);
+    border: 1px solid rgba(22, 163, 74, 0.28);
+    padding: 0.25rem 0.65rem;
+    border-radius: 4px;
+    margin-bottom: 0.9rem;
+  }
 
   h1 {
-    margin: 0 0 0.6rem;
-    font-size: 2.2rem;
+    margin: 0 0 0.5rem;
+    font-size: 2.1rem;
     font-weight: 750;
     letter-spacing: -0.02em;
     color: var(--dark);
@@ -43,76 +62,67 @@ body {
 
   p {
     margin: 0;
-    max-width: 65ch;
-    color: var(--darkgray); // Đậm, rõ nét, tương phản hoàn hảo trên nền sáng
-    font-size: 1.05rem;
+    max-width: 68ch;
+    color: var(--darkgray);
+    font-size: 1rem;
     font-weight: 480;
     line-height: 1.6;
   }
 }
 
 // ------------------------------------------------------------
-//  3. Card grid — Dashboard trang chủ (Fix triệt để tương phản Light Mode)
+//  3. SCADA Panels — Khối điều khiển phân vùng kỹ thuật
 // ------------------------------------------------------------
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.25rem;
-  margin: 0 0 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.15rem;
+  margin: 0 0 2.5rem;
 }
 
 .card {
   position: relative;
-  overflow: hidden;
-  padding: 1.35rem 1.5rem;
-  border-radius: 14px;
+  padding: 1.25rem 1.4rem;
+  border-radius: 6px;
   border: 1px solid var(--lightgray);
   background-color: var(--light);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
   transition:
-    transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    transform 0.18s ease;
 
-  // Thanh phát sáng phân loại hệ thống (Accent Bar)
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    opacity: 0.9;
-    transition: height 0.2s ease, opacity 0.2s ease;
+  // Vạch biên trạng thái kỹ thuật bên trái
+  border-left: 3px solid var(--secondary);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.07);
   }
 
-  &:hover::before {
-    height: 5px;
-    opacity: 1;
-  }
-
-  // Tiêu đề card — loại bỏ hoàn toàn pill background của a.internal
+  // Tiêu đề Panel kỹ thuật
   h3 {
     margin: 0 0 0.85rem;
-    padding-bottom: 0.65rem;
-    font-size: 1.12rem;
-    font-weight: 700;
-    border-bottom: 1px solid var(--lightgray);
+    padding-bottom: 0.55rem;
+    border-bottom: 1px dashed var(--lightgray);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: var(--codeFont);
+    font-size: 0.92rem;
+    letter-spacing: 0.02em;
 
     a,
     a.internal {
       color: var(--dark) !important;
       background: transparent !important;
-      background-color: transparent !important;
       padding: 0 !important;
       text-decoration: none !important;
       font-weight: 700;
-      display: inline-block;
       transition: color 0.15s ease;
 
       &:hover {
         color: var(--secondary) !important;
-        background: transparent !important;
       }
     }
   }
@@ -125,116 +135,156 @@ body {
 
   li {
     margin: 0;
-    padding: 0.22rem 0;
+    padding: 0.15rem 0;
 
-    // Link trong danh mục — Đậm, sắc nét, loại bỏ pill mờ nhạt
+    // Link lệnh dòng điều khiển Console (> command)
     a,
     a.internal {
-      color: var(--darkgray) !important; // Chữ đậm, dễ nhìn, không bị chìm
+      font-family: var(--codeFont);
+      color: var(--darkgray) !important;
       background: transparent !important;
-      background-color: transparent !important;
-      padding: 0.22rem 0.5rem !important;
-      border-radius: 6px;
-      font-size: 0.92rem;
+      padding: 0.28rem 0.55rem !important;
+      border-radius: 4px;
+      font-size: 0.85rem;
       font-weight: 500;
       text-decoration: none !important;
-      display: inline-flex;
+      display: flex;
       align-items: center;
-      gap: 0.45rem;
+      gap: 0.5rem;
       transition: all 0.15s ease;
 
       &::before {
-        content: "▸";
+        content: ">";
+        font-family: var(--codeFont);
         color: var(--secondary);
-        opacity: 0.75;
-        font-size: 0.88rem;
+        font-weight: 700;
+        font-size: 0.85rem;
+        opacity: 0.7;
         transition: transform 0.15s ease, opacity 0.15s ease;
       }
 
       &:hover {
         color: var(--dark) !important;
         background-color: var(--highlight) !important;
-        transform: translateX(3px);
+        transform: translateX(4px);
 
         &::before {
           opacity: 1;
-          transform: translateX(1px);
+          color: var(--secondary);
         }
       }
     }
   }
 
-  &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-  }
-
-  // 1. LV System — Xanh dương công nghiệp (Schneider/ABB Blue)
+  // Phân loại mã hệ thống & thông số chuẩn SCADA
+  // 1. LV System
   &:nth-child(1) {
-    &::before { background: linear-gradient(90deg, #0284c7, #38bdf8); }
-    &:hover {
-      border-color: #0284c7;
-      box-shadow: 0 10px 24px rgba(2, 132, 199, 0.16);
+    border-left-color: #0284c7;
+    h3::after {
+      content: "400V / 50Hz";
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: var(--gray);
+      background: rgba(2, 132, 199, 0.08);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
     }
+    &:hover { border-color: #0284c7; }
   }
 
-  // 2. UPS — Tím dữ liệu Data Center (Data Center Violet)
+  // 2. UPS System
   &:nth-child(2) {
-    &::before { background: linear-gradient(90deg, #8b5cf6, #c084fc); }
-    &:hover {
-      border-color: #8b5cf6;
-      box-shadow: 0 10px 24px rgba(139, 92, 246, 0.16);
+    border-left-color: #8b5cf6;
+    h3::after {
+      content: "IEC 62040";
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: var(--gray);
+      background: rgba(139, 92, 246, 0.08);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
     }
+    &:hover { border-color: #8b5cf6; }
   }
 
-  // 3. Generator — Vàng cam công suất (CAT / Generator Amber)
+  // 3. Generator
   &:nth-child(3) {
-    &::before { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
-    &:hover {
-      border-color: #f59e0b;
-      box-shadow: 0 10px 24px rgba(245, 158, 11, 0.16);
+    border-left-color: #f59e0b;
+    h3::after {
+      content: "ANSI/TIA-942";
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: var(--gray);
+      background: rgba(245, 158, 11, 0.08);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
     }
+    &:hover { border-color: #f59e0b; }
   }
 
-  // 4. ELV System — Xanh ngọc viễn thông (Telecom Cyan)
+  // 4. ELV System
   &:nth-child(4) {
-    &::before { background: linear-gradient(90deg, #06b6d4, #22d3ee); }
-    &:hover {
-      border-color: #06b6d4;
-      box-shadow: 0 10px 24px rgba(6, 182, 212, 0.16);
+    border-left-color: #06b6d4;
+    h3::after {
+      content: "TOA / EWIS";
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: var(--gray);
+      background: rgba(6, 182, 212, 0.08);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
     }
+    &:hover { border-color: #06b6d4; }
   }
 
-  // 5. Fire Safety — Đỏ an toàn PCCC (Fire Red)
+  // 5. Fire Safety
   &:nth-child(5) {
-    &::before { background: linear-gradient(90deg, #ef4444, #f87171); }
-    &:hover {
-      border-color: #ef4444;
-      box-shadow: 0 10px 24px rgba(239, 68, 68, 0.16);
+    border-left-color: #ef4444;
+    h3::after {
+      content: "TCVN 13456";
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: var(--gray);
+      background: rgba(239, 68, 68, 0.08);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
     }
+    &:hover { border-color: #ef4444; }
   }
 
-  // 6. Protection System — Xanh lá tiếp địa (Earth Ground Green)
+  // 6. Protection System
   &:nth-child(6) {
-    &::before { background: linear-gradient(90deg, #10b981, #34d399); }
-    &:hover {
-      border-color: #10b981;
-      box-shadow: 0 10px 24px rgba(16, 185, 129, 0.16);
+    border-left-color: #10b981;
+    h3::after {
+      content: "EARTHING";
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: var(--gray);
+      background: rgba(16, 185, 129, 0.08);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
     }
+    &:hover { border-color: #10b981; }
   }
 
-  // 7. Solutions — Xanh chanh công nghệ thông minh (Eco Smart Lime)
+  // 7. Solutions
   &:nth-child(7) {
-    &::before { background: linear-gradient(90deg, #84cc16, #a3e635); }
-    &:hover {
-      border-color: #84cc16;
-      box-shadow: 0 10px 24px rgba(132, 204, 22, 0.16);
+    border-left-color: #84cc16;
+    h3::after {
+      content: "SMART BMS";
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: var(--gray);
+      background: rgba(132, 204, 22, 0.08);
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
     }
+    &:hover { border-color: #84cc16; }
   }
 }
 
 // ------------------------------------------------------------
-//  4. Liên kết nội bộ toàn trang (Fix pill background xấu cho a.internal)
+//  4. Liên kết nội bộ toàn trang (Clean Monospace Tech Link)
 // ------------------------------------------------------------
 a.internal {
   background-color: transparent;
@@ -244,7 +294,7 @@ a.internal {
   text-decoration-style: dashed;
   text-underline-offset: 3px;
   text-decoration-thickness: 1px;
-  border-radius: 4px;
+  border-radius: 3px;
   padding: 0.05rem 0.2rem;
   transition: all 0.15s ease;
 
@@ -260,13 +310,14 @@ a.internal {
 // ------------------------------------------------------------
 .left.sidebar,
 .right.sidebar {
-  border-radius: 12px;
+  border-radius: 6px;
 }
 
 .explorer-item,
 .explorer-content a {
-  border-radius: 7px;
+  border-radius: 4px;
   color: var(--darkgray);
+  font-size: 0.9rem;
   transition: background-color 0.15s ease, color 0.15s ease;
 
   &:hover {
@@ -276,85 +327,83 @@ a.internal {
 }
 
 // ------------------------------------------------------------
-//  6. Graph view — bo góc, cao hơn, mượt giống Obsidian
+//  6. Graph view — Tinh gọn, khung kỹ thuật
 // ------------------------------------------------------------
 .graph {
   .graph-outer {
-    border-radius: 12px;
+    border-radius: 6px;
     border: 1px solid var(--lightgray);
     background:
-      radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.05), transparent 70%);
+      radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.04), transparent 70%);
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
 
     &:hover {
       border-color: var(--secondary);
-      box-shadow: 0 6px 20px rgba(56, 189, 248, 0.12);
+      box-shadow: 0 4px 14px rgba(56, 189, 248, 0.1);
     }
   }
 
-  // graph sidebar nâng lên 340px cho dễ quan sát
   #graph-container {
-    height: 340px;
-    border-radius: 12px;
+    height: 330px;
+    border-radius: 6px;
   }
 }
 
-// Modal graph toàn cục (Ctrl/Cmd + G)
 #global-graph-outer {
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
 }
 
 #global-graph-container {
-  border-radius: 16px;
+  border-radius: 8px;
   border: 1px solid var(--lightgray);
 }
 
 // ------------------------------------------------------------
-//  7. Khối công thức kỹ thuật (Engineering Calculation Box)
+//  7. Khối công thức kỹ thuật (SCADA Calc Bracket)
 // ------------------------------------------------------------
 .katex-display {
   position: relative;
   margin: 1.5rem 0;
   padding: 1.25rem 1.6rem;
   background-color: var(--light);
-  border: 1px dashed var(--lightgray);
-  border-left: 4px solid var(--secondary);
-  border-radius: 10px;
+  border: 1px solid var(--lightgray);
+  border-left: 3px solid var(--secondary);
+  border-radius: 6px;
   overflow-x: auto;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02);
 
   &::before {
-    content: "FORMULA";
+    content: "[CALC::FORMULA]";
     position: absolute;
     top: 8px;
     right: 12px;
-    font-size: 0.62rem;
-    font-weight: 700;
+    font-family: var(--codeFont);
+    font-size: 0.65rem;
+    font-weight: 600;
     letter-spacing: 0.08em;
     color: var(--gray);
-    opacity: 0.75;
   }
 }
 
 // ------------------------------------------------------------
-//  8. Code & Bảng tra số liệu (Technical Datasheet Table)
+//  8. Bảng tra số liệu Datasheet (Industrial Matrix Table)
 // ------------------------------------------------------------
 pre {
-  border-radius: 10px;
+  border-radius: 6px;
   border: 1px solid var(--lightgray);
 }
 
 code {
-  border-radius: 5px;
+  border-radius: 4px;
 }
 
 table {
   border-collapse: separate;
   border-spacing: 0;
-  border-radius: 10px;
+  border-radius: 6px;
   overflow: hidden;
-  font-size: 0.92rem;
+  font-size: 0.88rem;
   width: 100%;
   font-variant-numeric: tabular-nums;
   border: 1px solid var(--lightgray);
@@ -366,14 +415,17 @@ table {
     z-index: 2;
     background-color: var(--lightgray);
     color: var(--dark);
+    font-family: var(--codeFont);
+    font-size: 0.82rem;
     font-weight: 600;
-    padding: 0.75rem 1rem;
+    letter-spacing: 0.02em;
+    padding: 0.7rem 0.9rem;
     text-align: left;
     border-bottom: 2px solid var(--lightgray);
   }
 
   tbody td {
-    padding: 0.65rem 1rem;
+    padding: 0.6rem 0.9rem;
     border-bottom: 1px solid var(--lightgray);
     color: var(--darkgray);
   }
@@ -392,20 +444,20 @@ table {
 }
 
 // ------------------------------------------------------------
-//  9. Sơ đồ nguyên lý, Hình ảnh & Video (Technical Diagrams)
+//  9. Sơ đồ nguyên lý, Hình ảnh & Video (Technical Single-Line Drawings)
 // ------------------------------------------------------------
 article img {
   display: block;
   margin: 1.75rem auto;
   max-width: 100%;
-  border-radius: 10px;
+  border-radius: 6px;
   border: 1px solid var(--lightgray);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 
   &:hover {
-    transform: scale(1.015);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    transform: scale(1.01);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
   }
 }
 
@@ -413,13 +465,13 @@ article video {
   display: block;
   margin: 1.75rem auto;
   max-width: 100%;
-  border-radius: 12px;
+  border-radius: 6px;
   border: 1px solid var(--lightgray);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
 }
 
 // ------------------------------------------------------------
-//  10. Tiêu đề mục kỹ thuật (Technical Headings)
+//  10. Tiêu đề mục kỹ thuật (Technical Section Headings)
 // ------------------------------------------------------------
 article h2 {
   display: flex;
@@ -429,45 +481,47 @@ article h2 {
   padding-bottom: 0.4rem;
   border-bottom: 1px solid var(--lightgray);
   color: var(--dark);
+  font-weight: 700;
 
   &::before {
-    content: "";
-    display: inline-block;
-    width: 4px;
-    height: 1.05em;
-    background: var(--secondary);
-    border-radius: 2px;
+    content: "//";
+    font-family: var(--codeFont);
+    color: var(--secondary);
+    font-size: 0.9em;
+    font-weight: 700;
   }
 }
 
 article h3 {
   color: var(--dark);
+  font-weight: 650;
 }
 
 // ------------------------------------------------------------
-//  11. Callout theo ngữ cảnh kỹ thuật
+//  11. Callout theo chuẩn SCADA
 // ------------------------------------------------------------
 .callout {
-  border-radius: 10px;
-  border-left-width: 4px;
+  border-radius: 6px;
+  border-left-width: 3px;
 }
 
-.callout[data-callout="note"]      { border-left-color: #38bdf8; }
+.callout[data-callout="note"]      { border-left-color: #0284c7; }
 .callout[data-callout="tip"],
-.callout[data-callout="success"]   { border-left-color: #22c55e; }
+.callout[data-callout="success"]   { border-left-color: #16a34a; }
 .callout[data-callout="warning"],
-.callout[data-callout="caution"]   { border-left-color: #f59e0b; }
+.callout[data-callout="caution"]   { border-left-color: #d97706; }
 .callout[data-callout="danger"],
-.callout[data-callout="error"]     { border-left-color: #ef4444; }
-.callout[data-callout="important"] { border-left-color: #818cf8; }
+.callout[data-callout="error"]     { border-left-color: #dc2626; }
+.callout[data-callout="important"] { border-left-color: #6366f1; }
 
 // ------------------------------------------------------------
-//  12. Tag dạng chip
+//  12. Tag dạng chip kỹ thuật
 // ------------------------------------------------------------
 .tag-link {
-  border-radius: 999px;
-  padding: 0.12rem 0.65rem;
-  font-size: 0.8rem;
+  font-family: var(--codeFont);
+  border-radius: 4px;
+  padding: 0.1rem 0.55rem;
+  font-size: 0.75rem;
   background-color: var(--highlight);
   border: 1px solid var(--lightgray);
   color: var(--darkgray);
@@ -479,11 +533,11 @@ article h3 {
 }
 
 // ------------------------------------------------------------
-//  13. Mobile
+//  13. Mobile Responsive
 // ------------------------------------------------------------
 @media all and (max-width: 800px) {
   .hero {
-    padding: 1.75rem 1.25rem;
+    padding: 1.5rem 1.25rem;
 
     h1 { font-size: 1.6rem; }
   }
