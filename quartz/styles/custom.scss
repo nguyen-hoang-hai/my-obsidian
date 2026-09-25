@@ -372,21 +372,45 @@ a.internal {
     }
   }
 
-  #graph-container {
-    height: 330px;
+  .graph-container {
+    height: 260px;
     border-radius: 6px;
   }
 }
 
-#global-graph-outer {
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
+.global-graph-outer {
+  background-color: rgba(11, 18, 32, 0.72) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  cursor: pointer;
 
-#global-graph-container {
-  border-radius: 8px;
-  border: 1px solid var(--secondary);
-  box-shadow: 0 0 40px rgba(56, 189, 248, 0.14);
+  & > .global-graph-container {
+    cursor: default;
+    border-radius: 8px !important;
+    border: 1px solid var(--secondary) !important;
+    box-shadow: 0 16px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(56, 189, 248, 0.15) !important;
+    overflow: hidden;
+
+    // Header chỉ dẫn thao tác trên Modal Graph
+    &::before {
+      content: "\25CF  TOPOLOGY NETWORK  //  B\1EA4M RA NGO\00C0I HO\1EB6C PH\00CDM ESC \0110\1EC2 \0110\00D3NG";
+      position: absolute;
+      top: 14px;
+      left: 16px;
+      font-family: var(--codeFont);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--secondary);
+      background-color: var(--light);
+      border: 1px solid var(--lightgray);
+      padding: 0.28rem 0.65rem;
+      border-radius: 4px;
+      z-index: 10;
+      pointer-events: none;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    }
+  }
 }
 
 // ------------------------------------------------------------

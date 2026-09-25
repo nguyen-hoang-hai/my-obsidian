@@ -162,36 +162,36 @@ plugins:
   - source: github:quartz-community/graph
     enabled: true
     options:
-      # Graph nhỏ ở sidebar phải — tinh chỉnh mượt & thoáng
+      # Graph nhỏ ở sidebar phải — tinh chỉnh cân đối theo không gian cột
       localGraph:
         drag: true
         zoom: true
         depth: 1
-        scale: 1.1
-        repelForce: 1.5          # lực đẩy mạnh hơn để không chồng chữ
-        centerForce: 0.2
-        linkDistance: 80         # khoảng cách dây rộng rãi
+        scale: 1.0
+        repelForce: 0.6          # lực đẩy vừa vặn cho khung hẹp 250px
+        centerForce: 0.35        # lực hút tâm vững để node không lệch khung
+        linkDistance: 35         # khoảng cách dây ngắn gọn
         fontSize: 0.44
-        opacityScale: 1.1
+        opacityScale: 1.0
         removeTags: ["#"]
         showTags: false          # lọc bỏ tag rác
         focusOnHover: true       # hover node làm mờ node không liên quan
-        enableRadial: false
-      # Graph toàn cục (bấm icon graph hoặc Ctrl/Cmd + G để mở fullscreen)
+        enableRadial: true       # giữ node phân bổ tròn đều, không xô lệch
+      # Graph toàn cục (bấm icon graph hoặc Ctrl/Cmd + G để mở modal)
       globalGraph:
         drag: true
         zoom: true
         depth: -1
-        scale: 0.8
-        repelForce: 2.4          # lực đẩy cực đại để 7 cụm tự động dạt xa nhau
-        centerForce: 0.1         # lực hút tâm nhẹ để đồ thị bung tỏa thoáng đãng
-        linkDistance: 120        # dây dài 120px cho không gian thở
-        fontSize: 0.48
-        opacityScale: 1.2
+        scale: 1.0               # tỷ lệ 1.0 chuẩn để font chữ không bị phóng to 125%
+        repelForce: 0.7          # lực đẩy êm ái, tránh bắn node ra mép ngoài màn hình
+        centerForce: 0.3         # lực hút tâm ổn định giữ đồ thị luôn ở chính giữa
+        linkDistance: 45         # khoảng cách liên kết vừa vặn với toàn bộ 31 ghi chú
+        fontSize: 0.42           # chữ sắc nét, không va chạm đè chồng chữ
+        opacityScale: 1.0
         removeTags: ["#"]
-        showTags: false          # lọc bỏ tag rác trôi nổi
+        showTags: false          # lọc bỏ tag rác
         focusOnHover: true       # rọi sáng cụm đang hover
-        enableRadial: false      # TẮT vòng tròn gò bó -> bung tỏa tự nhiên theo chòm sao
+        enableRadial: true       # phân bố các nhánh tỏa đều 360 độ quanh tâm Electrical System
     layout:
       position: right
       priority: 10
