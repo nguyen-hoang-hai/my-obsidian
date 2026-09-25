@@ -157,8 +157,41 @@ plugins:
     options:
       folderClickBehavior: collapse
       useSavedState: true
-  - source: "@quartz-community/graph"     # sửa từ "github:quartz-community/graph" -> đúng format chuẩn như 44 plugin còn lại
+  # LƯU Ý: graph dùng đúng dạng "github:..." theo tài liệu chính thức của plugin.
+  # (Bản trước mình sửa nhầm thành "@quartz-community/graph" — đã revert lại.)
+  - source: github:quartz-community/graph
     enabled: true
+    options:
+      # Graph nhỏ ở sidebar phải — tinh chỉnh cho mượt & thoáng giống Obsidian
+      localGraph:
+        drag: true
+        zoom: true
+        depth: 1
+        scale: 1.15
+        repelForce: 0.9          # đẩy node xa nhau hơn -> đỡ chồng chữ
+        centerForce: 0.28
+        linkDistance: 42         # dây dài hơn, nhìn thoáng
+        fontSize: 0.55
+        opacityScale: 1.1
+        removeTags: []
+        showTags: true
+        focusOnHover: true       # hover node -> làm mờ node không liên quan (giống Obsidian)
+        enableRadial: false
+      # Graph toàn cục (bấm icon graph hoặc Ctrl/Cmd + G để mở fullscreen)
+      globalGraph:
+        drag: true
+        zoom: true
+        depth: -1
+        scale: 0.85
+        repelForce: 1.1          # cụm tách rõ ràng, không dính chùm
+        centerForce: 0.2
+        linkDistance: 55
+        fontSize: 0.6
+        opacityScale: 1.2
+        removeTags: []
+        showTags: true
+        focusOnHover: true
+        enableRadial: true
     layout:
       position: right
       priority: 10

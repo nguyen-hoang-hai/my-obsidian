@@ -1,83 +1,187 @@
 // ============================================================
-// custom.scss — Data Center / Electrical Engineering theme
-// Đặt file này vào: quartz/styles/custom.scss
+//  custom.scss — Electrical / Data Center theme for Quartz v5
+//  Đặt tại: quartz/styles/custom.scss
 // ============================================================
 
-// ---------- 1. Layout tổng thể ----------
+// ------------------------------------------------------------
+//  1. Khung trang
+// ------------------------------------------------------------
 .page {
-  max-width: 1500px;
+  max-width: 1480px;
 }
 
 .center article {
-  border-radius: 16px;
+  border-radius: 14px;
   padding: 2rem 2.5rem;
+  line-height: 1.7;
 }
 
-// ---------- 2. Sidebar kính mờ (glassmorphism nhẹ) ----------
+// ------------------------------------------------------------
+//  2. Hero — khối tiêu đề trang chủ
+// ------------------------------------------------------------
+.hero {
+  margin: 0 0 2.5rem;
+  padding: 2.5rem 2rem;
+  border-radius: 16px;
+  border: 1px solid var(--lightgray);
+  background:
+    radial-gradient(circle at 15% 20%, rgba(56, 189, 248, 0.14), transparent 55%),
+    radial-gradient(circle at 85% 80%, rgba(129, 140, 248, 0.12), transparent 55%);
+
+  h1 {
+    margin: 0 0 0.5rem;
+    font-size: 2.1rem;
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    margin: 0;
+    max-width: 62ch;
+    color: var(--gray);
+    font-size: 1rem;
+  }
+}
+
+// ------------------------------------------------------------
+//  3. Card grid — dashboard trang chủ
+// ------------------------------------------------------------
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+  margin: 0 0 2rem;
+}
+
+.card {
+  padding: 1.25rem 1.4rem;
+  border-radius: 14px;
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  transition:
+    transform 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease;
+
+  h3 {
+    margin: 0 0 0.75rem;
+    padding-bottom: 0.6rem;
+    font-size: 1.02rem;
+    border-bottom: 1px solid var(--lightgray);
+
+    a {
+      color: var(--dark);
+      text-decoration: none;
+      background-image: none;
+    }
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    margin: 0;
+    padding: 0.2rem 0;
+    font-size: 0.88rem;
+
+    a {
+      color: var(--gray);
+      text-decoration: none;
+      background-image: none;
+      transition: color 0.15s ease;
+
+      &::before {
+        content: "▸ ";
+        color: var(--secondary);
+        opacity: 0.55;
+      }
+
+      &:hover {
+        color: var(--secondary);
+      }
+    }
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    border-color: var(--secondary);
+    box-shadow: 0 10px 28px rgba(56, 189, 248, 0.14);
+  }
+}
+
+// ------------------------------------------------------------
+//  4. Sidebar
+// ------------------------------------------------------------
 .left.sidebar,
 .right.sidebar {
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  background-color: rgba(11, 18, 32, 0.55); // chỉ rõ ở dark mode
   border-radius: 12px;
 }
 
-// ---------- 3. Card cho Explorer / Folder ----------
-.explorer-item {
-  border-radius: 8px;
-  transition: background-color 0.15s ease, transform 0.15s ease;
+.explorer-item,
+.explorer-content a {
+  border-radius: 7px;
+  transition: background-color 0.15s ease;
+
+  &:hover {
+    background-color: var(--highlight);
+  }
 }
 
-.explorer-item:hover {
-  background-color: var(--highlight);
-  transform: translateX(2px);
+// ------------------------------------------------------------
+//  5. Graph view — bo góc, cao hơn, mượt giống Obsidian
+// ------------------------------------------------------------
+.graph {
+  .graph-outer {
+    border-radius: 12px;
+    border: 1px solid var(--lightgray);
+    background:
+      radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.05), transparent 70%);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+      border-color: var(--secondary);
+      box-shadow: 0 6px 20px rgba(56, 189, 248, 0.12);
+    }
+  }
+
+  // graph sidebar mặc định 250px -> nâng lên cho dễ nhìn
+  #graph-container {
+    height: 340px;
+    border-radius: 12px;
+  }
 }
 
-// ---------- 4. Code block đẹp hơn ----------
+// Modal graph toàn cục (Ctrl/Cmd + G)
+#global-graph-outer {
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+#global-graph-container {
+  border-radius: 16px;
+  border: 1px solid var(--lightgray);
+}
+
+// ------------------------------------------------------------
+//  6. Code & bảng kỹ thuật
+// ------------------------------------------------------------
 pre {
   border-radius: 10px;
   border: 1px solid var(--lightgray);
 }
 
 code {
-  border-radius: 6px;
+  border-radius: 5px;
 }
 
-// ---------- 5. Callout theo màu Data Center ----------
-.callout {
-  border-radius: 10px;
-  border-left-width: 4px;
-}
-
-.callout[data-callout="note"] {
-  border-left-color: #38bdf8; // xanh điện
-}
-
-.callout[data-callout="tip"],
-.callout[data-callout="success"] {
-  border-left-color: #22c55e; // xanh lá
-}
-
-.callout[data-callout="warning"],
-.callout[data-callout="caution"] {
-  border-left-color: #f59e0b; // vàng cam cảnh báo
-}
-
-.callout[data-callout="danger"],
-.callout[data-callout="error"] {
-  border-left-color: #ef4444; // đỏ sự cố
-}
-
-.callout[data-callout="important"] {
-  border-left-color: #818cf8; // tím indigo
-}
-
-// ---------- 6. Bảng dữ liệu kỹ thuật (catalogue, cable sizing...) ----------
 table {
-  border-radius: 8px;
-  overflow: hidden;
   border-collapse: separate;
   border-spacing: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  font-size: 0.92rem;
 }
 
 thead th {
@@ -89,51 +193,53 @@ tbody tr:hover {
   background-color: var(--highlight);
 }
 
-// ---------- 7. Card dashboard (dùng trong index.md) ----------
-.eng-card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1rem;
-  margin: 1.5rem 0;
+// ------------------------------------------------------------
+//  7. Callout theo ngữ cảnh kỹ thuật
+// ------------------------------------------------------------
+.callout {
+  border-radius: 10px;
+  border-left-width: 4px;
 }
 
-.eng-card {
-  display: block;
-  padding: 1.25rem;
-  border-radius: 14px;
-  border: 1px solid var(--lightgray);
-  background-color: var(--light);
-  text-decoration: none !important;
-  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
-}
+.callout[data-callout="note"]      { border-left-color: #38bdf8; }
+.callout[data-callout="tip"],
+.callout[data-callout="success"]   { border-left-color: #22c55e; }
+.callout[data-callout="warning"],
+.callout[data-callout="caution"]   { border-left-color: #f59e0b; }
+.callout[data-callout="danger"],
+.callout[data-callout="error"]     { border-left-color: #ef4444; }
+.callout[data-callout="important"] { border-left-color: #818cf8; }
 
-.eng-card:hover {
-  transform: translateY(-3px);
-  border-color: var(--secondary);
-  box-shadow: 0 8px 24px rgba(56, 189, 248, 0.15);
-}
-
-.eng-card h3 {
-  margin: 0 0 0.35rem 0;
-  color: var(--secondary);
-}
-
-.eng-card p {
-  margin: 0;
-  color: var(--darkgray);
-  font-size: 0.9rem;
-}
-
-// ---------- 8. Tag hiển thị như chip (pill) ----------
+// ------------------------------------------------------------
+//  8. Tag dạng chip
+// ------------------------------------------------------------
 .tag-link {
   border-radius: 999px;
-  padding: 0.15rem 0.7rem;
+  padding: 0.12rem 0.65rem;
+  font-size: 0.8rem;
   background-color: var(--highlight);
-  border: 1px solid var(--secondary);
+  border: 1px solid var(--lightgray);
+
+  &:hover {
+    border-color: var(--secondary);
+  }
 }
 
-// ---------- 9. Graph & TOC bo góc đồng bộ ----------
-#graph-container,
-.toc {
-  border-radius: 12px;
+// ------------------------------------------------------------
+//  9. Mobile
+// ------------------------------------------------------------
+@media all and (max-width: 800px) {
+  .hero {
+    padding: 1.75rem 1.25rem;
+
+    h1 { font-size: 1.6rem; }
+  }
+
+  .center article {
+    padding: 1.25rem;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
 }

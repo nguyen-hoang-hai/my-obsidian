@@ -1,96 +1,74 @@
 ---
 title: Electrical System
-description: Engineering Knowledge Base về Điện, UPS, Generator, ELV, PCCC, Protection và Solutions.
+description: Knowledge base về LV, UPS, Generator, ELV, Fire Safety, Protection và Solutions.
 ---
 
-# ⚡ Electrical System
-
-Knowledge base cá nhân về **LV System**, **UPS**, **Generator**, **ELV System**, **Fire Safety System**, **Protection System** và **Solutions**.
-
-<div class="eng-card-grid">
-
-<a class="eng-card" href="/LV System">
-<h3>🔌 LV System</h3>
-<p>Circuit Breaker & Cable, Cable Tray, Capacitor Bank, Socket Outlet</p>
-</a>
-
-<a class="eng-card" href="/UPS">
-<h3>🔋 UPS</h3>
-<p>VFD, VI, VFI</p>
-</a>
-
-<a class="eng-card" href="/Generator">
-<h3>⚙️ Generator</h3>
-<p>Generator Synchronization, N & N+X Redundancy, Generator Ratings, Emergency Generator Topologies</p>
-</a>
-
-<a class="eng-card" href="/ELV System">
-<h3>📡 ELV System</h3>
-<p>BMS, EWIS, Public Address</p>
-</a>
-
-<a class="eng-card" href="/Fire Safety System">
-<h3>🔥 Fire Safety System</h3>
-<p>Fire Alarm, Exit & Emergency</p>
-</a>
-
-<a class="eng-card" href="/Protection System">
-<h3>🛡️ Protection System</h3>
-<p>Earthing & Grounding, Lightning</p>
-</a>
-
-<a class="eng-card" href="/Solutions">
-<h3>💡 Solutions</h3>
-<p>Smart Building - SE</p>
-</a>
-
+<div class="hero">
+  <h1>⚡ Electrical System</h1>
+  <p>Knowledge base kỹ thuật điện — từ hệ thống hạ thế đến nguồn dự phòng, an toàn và giải pháp công trình.</p>
 </div>
 
-## 📝 Nội dung chi tiết
+<div class="card-grid">
 
-## [[LV System]]
-- Circuit Breaker & Cable
-- Cable Tray
-- Capacitor Bank
-- Socket Outlet
+<div class="card">
+<h3>🔌 <a href="LV-System">LV System</a></h3>
+<ul>
+<li><a href="LV-System/Circuit-Breaker-Cable">Circuit Breaker & Cable</a></li>
+<li><a href="LV-System/Cable-Tray">Cable Tray</a></li>
+<li><a href="LV-System/Capacitor-Bank">Capacitor Bank</a></li>
+<li><a href="LV-System/Socket-Outlet">Socket Outlet</a></li>
+</ul>
+</div>
 
-### [[UPS]]
-- VFD
-- VI
-- VFI
+<div class="card">
+<h3>🔋 <a href="UPS">UPS</a></h3>
+<ul>
+<li><a href="UPS/VFD">VFD</a></li>
+<li><a href="UPS/VI">VI</a></li>
+<li><a href="UPS/VFI">VFI</a></li>
+</ul>
+</div>
 
-## [[Generator]]
-- Generator Synchronization
-- 'N' & 'N+X' Redundancy
-- Generator Ratings
-- Emergency Generator Topologies
+<div class="card">
+<h3>⚙️ <a href="Generator">Generator</a></h3>
+<ul>
+<li><a href="Generator/Generator-Synchronization">Synchronization</a></li>
+<li><a href="Generator/N-and-N-X-Redundancy">N & N+X Redundancy</a></li>
+<li><a href="Generator/Generator-Ratings">Generator Ratings</a></li>
+<li><a href="Generator/Emergency-Generator-Topologies">Emergency Topologies</a></li>
+</ul>
+</div>
 
-## [[ELV System]]
-- BMS
-- EWIS
-- Public Address
+<div class="card">
+<h3>📡 <a href="ELV-System">ELV System</a></h3>
+<ul>
+<li><a href="ELV-System/BMS">BMS</a></li>
+<li><a href="ELV-System/EWIS">EWIS</a></li>
+<li><a href="ELV-System/Public-Address">Public Address</a></li>
+</ul>
+</div>
 
-## [[Fire Safety System]]
-- Fire Alarm
-- Exit & Emergency
+<div class="card">
+<h3>🔥 <a href="Fire-Safety-System">Fire Safety System</a></h3>
+<ul>
+<li><a href="Fire-Safety-System/Fire-Alarm">Fire Alarm</a></li>
+<li><a href="Fire-Safety-System/Exit-Emergency">Exit & Emergency</a></li>
+</ul>
+</div>
 
-## [[Protection System]]
-- Earthing & Grounding
-- Lightning
+<div class="card">
+<h3>🛡️ <a href="Protection-System">Protection System</a></h3>
+<ul>
+<li><a href="Protection-System/Earthing-Grounding">Earthing & Grounding</a></li>
+<li><a href="Protection-System/Lightning">Lightning</a></li>
+</ul>
+</div>
 
-## [[Solutions]]
-- Smart Building - SE
+<div class="card">
+<h3>💡 <a href="Solutions">Solutions</a></h3>
+<ul>
+<li><a href="Solutions/Smart-Building-SE">Smart Building — SE</a></li>
+</ul>
+</div>
 
----
-
-## 📌 Ghi chú gần đây
-
-Danh sách note mới nhất sẽ tự hiển thị ở đây nhờ plugin `@quartz-community/recent-notes` (đã bật trong config, `limit: 10`).
-
-## 🕸️ Knowledge Graph
-
-Xem toàn bộ liên kết kiến thức bằng nút Graph ở sidebar phải.
-
-## 🏷️ Tag phổ biến
-
-`#lv-system` `#ups` `#generator` `#elv` `#fire-safety` `#protection` `#earthing` `#smart-building`
+</div>
