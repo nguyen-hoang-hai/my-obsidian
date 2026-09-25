@@ -11,63 +11,63 @@ description: Knowledge base về LV, UPS, Generator, ELV, Fire Safety, Protectio
 <div class="card-grid">
 
 <div class="card">
-<h3>🔌 <a href="LV-System">LV System</a></h3>
+<h3>🔌 <a href="lv-system">LV System</a></h3>
 <ul>
-<li><a href="LV-System/Circuit-Breaker-Cable">Circuit Breaker & Cable</a></li>
-<li><a href="LV-System/Cable-Tray">Cable Tray</a></li>
-<li><a href="LV-System/Capacitor-Bank">Capacitor Bank</a></li>
-<li><a href="LV-System/Socket-Outlet">Socket Outlet</a></li>
+<li><a href="lv-system/circuit-breaker--and--cable">Circuit Breaker & Cable</a></li>
+<li><a href="lv-system/cable-tray--and--cable-ladder">Cable Tray</a></li>
+<li><a href="lv-system/capacitor-bank">Capacitor Bank</a></li>
+<li><a href="lv-system/socket-outlet">Socket Outlet</a></li>
 </ul>
 </div>
 
 <div class="card">
-<h3>🔋 <a href="UPS">UPS</a></h3>
+<h3>🔋 <a href="ups">UPS</a></h3>
 <ul>
-<li><a href="UPS/VFD">VFD</a></li>
-<li><a href="UPS/VI">VI</a></li>
-<li><a href="UPS/VFI">VFI</a></li>
+<li><a href="ups/passive-standby-(off-line)-mode">VFD</a></li>
+<li><a href="ups/line-interactive-mode">VI</a></li>
+<li><a href="ups/double-conversion-(on-line)-mode">VFI</a></li>
 </ul>
 </div>
 
 <div class="card">
-<h3>⚙️ <a href="Generator">Generator</a></h3>
+<h3>⚙️ <a href="generator">Generator</a></h3>
 <ul>
-<li><a href="Generator/Generator-Synchronization">Synchronization</a></li>
-<li><a href="Generator/N-and-N-X-Redundancy">N & N+X Redundancy</a></li>
-<li><a href="Generator/Generator-Ratings">Generator Ratings</a></li>
-<li><a href="Generator/Emergency-Generator-Topologies">Emergency Topologies</a></li>
+<li><a href="generator/generator-synchronization">Synchronization</a></li>
+<li><a href="generator/'n'--and--'n+x'">N & N+X Redundancy</a></li>
+<li><a href="generator/generator-ratings">Generator Ratings</a></li>
+<li><a href="generator/emergency-generator-topologies">Emergency Topologies</a></li>
 </ul>
 </div>
 
 <div class="card">
-<h3>📡 <a href="ELV-System">ELV System</a></h3>
+<h3>📡 <a href="elv-system">ELV System</a></h3>
 <ul>
-<li><a href="ELV-System/BMS">BMS</a></li>
-<li><a href="ELV-System/EWIS">EWIS</a></li>
-<li><a href="ELV-System/Public-Address">Public Address</a></li>
+<li><a href="elv-system/bms">BMS</a></li>
+<li><a href="elv-system/ewis">EWIS</a></li>
+<li><a href="elv-system/public-address">Public Address</a></li>
 </ul>
 </div>
 
 <div class="card">
-<h3>🔥 <a href="Fire-Safety-System">Fire Safety System</a></h3>
+<h3>🔥 <a href="fire-safety-system">Fire Safety System</a></h3>
 <ul>
-<li><a href="Fire-Safety-System/Fire-Alarm">Fire Alarm</a></li>
-<li><a href="Fire-Safety-System/Exit-Emergency">Exit & Emergency</a></li>
+<li><a href="fire-safety-system/fire-alarm">Fire Alarm</a></li>
+<li><a href="fire-safety-system/exit--and--emergency-system">Exit & Emergency</a></li>
 </ul>
 </div>
 
 <div class="card">
-<h3>🛡️ <a href="Protection-System">Protection System</a></h3>
+<h3>🛡️ <a href="protection-system">Protection System</a></h3>
 <ul>
-<li><a href="Protection-System/Earthing-Grounding">Earthing & Grounding</a></li>
-<li><a href="Protection-System/Lightning">Lightning</a></li>
+<li><a href="protection-system/earthing--and--grounding-system">Earthing & Grounding</a></li>
+<li><a href="protection-system/lightning-system">Lightning</a></li>
 </ul>
 </div>
 
 <div class="card">
-<h3>💡 <a href="Solutions">Solutions</a></h3>
+<h3>💡 <a href="solutions">Solutions</a></h3>
 <ul>
-<li><a href="Solutions/Smart-Building-SE">Smart Building — SE</a></li>
+<li><a href="solutions/smart-building---se">Smart Building — SE</a></li>
 </ul>
 </div>
 
