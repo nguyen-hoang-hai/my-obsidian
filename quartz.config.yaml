@@ -16,31 +16,31 @@ configuration:
     fontOrigin: googleFonts
     cdnCaching: true
     typography:
-      title : Inter
+      title: Inter
       header: Inter
       body: Inter
-      code: Inter
+      code: JetBrains Mono          # đổi từ Inter -> monospace thật, để công thức/code không lệch cột
     colors:
       lightMode:
-        light: "#faf8f8"
-        lightgray: "#e5e5e5"
-        gray: "#b8b8b8"
-        darkgray: "#4e4e4e"
-        dark: "#2b2b2b"
-        secondary: "#284b63"
-        tertiary: "#84a59d"
-        highlight: rgba(143, 159, 169, 0.15)
-        textHighlight: "#fff23688"
+        light: "#F8FAFC"
+        lightgray: "#E2E8F0"
+        gray: "#94A3B8"
+        darkgray: "#334155"
+        dark: "#0F172A"
+        secondary: "#0284C7"
+        tertiary: "#6366F1"
+        highlight: rgba(2, 132, 199, 0.12)
+        textHighlight: "#38BDF855"
       darkMode:
-        light: "#161618"
-        lightgray: "#393639"
-        gray: "#646464"
-        darkgray: "#d4d4d4"
-        dark: "#ebebec"
-        secondary: "#7b97aa"
-        tertiary: "#84a59d"
-        highlight: rgba(143, 159, 169, 0.15)
-        textHighlight: "#b3aa0288"
+        light: "#0B1220"
+        lightgray: "#172033"
+        gray: "#475569"
+        darkgray: "#CBD5E1"
+        dark: "#F8FAFC"
+        secondary: "#38BDF8"
+        tertiary: "#818CF8"
+        highlight: rgba(56, 189, 248, 0.15)
+        textHighlight: "#38BDF855"
 plugins:
   - source: "@quartz-community/created-modified-date"
     enabled: true
@@ -121,6 +121,7 @@ plugins:
       passwordField: password
       unlistWhenEncrypted: false
       outputPath: static/encryptedContentIndex.json
+    order: 900                       # thêm order còn thiếu ở bản trước
   - source: "@quartz-community/stacked-pages"
     enabled: false
     layout:
@@ -153,7 +154,10 @@ plugins:
     layout:
       position: left
       priority: 50
-  - source: github:quartz-community/graph
+    options:
+      folderClickBehavior: collapse
+      useSavedState: true
+  - source: "@quartz-community/graph"     # sửa từ "github:quartz-community/graph" -> đúng format chuẩn như 44 plugin còn lại
     enabled: true
     layout:
       position: right
@@ -182,7 +186,7 @@ plugins:
       position: beforeBody
       priority: 20
   - source: "@quartz-community/tag-list"
-    enabled: false
+    enabled: true                        # bật lại để dùng #iec #ups #generator #datacenter...
     layout:
       position: beforeBody
       priority: 30
@@ -221,13 +225,15 @@ plugins:
     enabled: true
     options:
       links:
-        GitHub: https://github.com/jackyzha0/quartz
-        Discord Community: https://discord.gg/cRFFHYye7t
+        GitHub: https://github.com/nguyen-hoang-hai/my-obsidian
+        LinkedIn: https://www.linkedin.com/in/nhhai/
     layout:
       position: footer
       priority: 50
   - source: "@quartz-community/recent-notes"
-    enabled: false
+    enabled: true                        # bật lại để trang chủ giống dashboard kiến thức
+    options:
+      limit: 10
   - source: "@quartz-community/spacer"
     enabled: true
     options: {}
