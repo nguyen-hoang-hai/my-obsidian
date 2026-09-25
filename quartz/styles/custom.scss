@@ -488,21 +488,35 @@ article video {
 //  11. Tiêu đề mục kỹ thuật (Technical Section Headings)
 // ------------------------------------------------------------
 article h2 {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
+  display: block;
   margin-top: 2.2rem;
+  margin-bottom: 0.8rem;
   padding-bottom: 0.4rem;
   border-bottom: 1px solid var(--lightgray);
   color: var(--dark);
   font-weight: 700;
+  line-height: 1.4;
 
   &::before {
-    content: "//";
+    content: "// ";
     font-family: var(--codeFont);
     color: var(--secondary);
     font-size: 0.9em;
     font-weight: 700;
+    margin-right: 0.25rem;
+    display: inline;
+  }
+
+  a[role="anchor"] {
+    opacity: 0;
+    display: inline-block;
+    margin-left: 0.4rem;
+    vertical-align: middle;
+    transition: opacity 0.15s ease;
+  }
+
+  &:hover a[role="anchor"] {
+    opacity: 0.6;
   }
 }
 
