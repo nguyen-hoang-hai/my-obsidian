@@ -9,8 +9,8 @@
 // ------------------------------------------------------------
 body {
   background-image:
-    linear-gradient(to right, rgba(148, 163, 184, 0.09) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(148, 163, 184, 0.09) 1px, transparent 1px);
+    linear-gradient(to right, rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
@@ -25,7 +25,26 @@ body {
 }
 
 // ------------------------------------------------------------
-//  2. Hero — Bảng điều khiển trung tâm (Control Console Header)
+//  2. Tối ưu trang chủ (Ẩn các phần thừa bị trùng lặp ở Index)
+// ------------------------------------------------------------
+body[data-slug="index"] {
+  // Ẩn tiêu đề h1 mặc định và bảng Properties trùng lặp trên trang chủ
+  .page-header {
+    display: none !important;
+  }
+
+  // Ẩn danh sách Recent Notes thô ở cuối trang chủ
+  .recent-notes {
+    display: none !important;
+  }
+
+  hr {
+    display: none !important;
+  }
+}
+
+// ------------------------------------------------------------
+//  3. Hero — Bảng điều khiển trung tâm (Control Console Header)
 // ------------------------------------------------------------
 .hero {
   position: relative;
@@ -36,9 +55,9 @@ body {
   background-color: var(--light);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
 
-  // Chỉ báo trạng thái vận hành hệ thống (Status Telemetry)
+  // Chỉ báo trạng thái vận hành hệ thống (dùng mã Unicode an toàn)
   &::before {
-    content: "● SYS::ONLINE  //  M&E INFRASTRUCTURE DATABASE  //  STANDARDS: IEC · ISO · TCVN";
+    content: "\25CF  SYS::ONLINE  //  M&E INFRASTRUCTURE DATABASE  //  STANDARDS: IEC \00B7 ISO \00B7 TCVN";
     display: inline-block;
     font-family: var(--codeFont);
     font-size: 0.72rem;
@@ -58,6 +77,11 @@ body {
     font-weight: 750;
     letter-spacing: -0.02em;
     color: var(--dark);
+
+    // Ẩn icon anchor link trên tiêu đề Hero
+    a[role="anchor"] {
+      display: none !important;
+    }
   }
 
   p {
@@ -71,46 +95,48 @@ body {
 }
 
 // ------------------------------------------------------------
-//  3. SCADA Panels — Khối điều khiển phân vùng kỹ thuật
+//  4. SCADA Panels — Khối điều khiển phân vùng kỹ thuật
 // ------------------------------------------------------------
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.15rem;
+  gap: 1.25rem;
   margin: 0 0 2.5rem;
 }
 
 .card {
   position: relative;
-  padding: 1.25rem 1.4rem;
+  padding: 1.3rem 1.45rem;
   border-radius: 6px;
   border: 1px solid var(--lightgray);
   background-color: var(--light);
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+  border-left: 4px solid var(--secondary);
   transition:
     border-color 0.18s ease,
     box-shadow 0.18s ease,
     transform 0.18s ease;
 
-  // Vạch biên trạng thái kỹ thuật bên trái
-  border-left: 3px solid var(--secondary);
-
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.07);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
   }
 
-  // Tiêu đề Panel kỹ thuật
+  // Tiêu đề Panel kỹ thuật (cố định badge bên phải, giữ emoji và text liền nhau)
   h3 {
-    margin: 0 0 0.85rem;
+    position: relative;
+    margin: 0 0 0.9rem;
     padding-bottom: 0.55rem;
+    padding-right: 90px;
     border-bottom: 1px dashed var(--lightgray);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     font-family: var(--codeFont);
-    font-size: 0.92rem;
-    letter-spacing: 0.02em;
+    font-size: 0.95rem;
+    line-height: 1.4;
+
+    // Ẩn anchor link mặc định của Quartz trong card
+    a[role="anchor"] {
+      display: none !important;
+    }
 
     a,
     a.internal {
@@ -119,23 +145,40 @@ body {
       padding: 0 !important;
       text-decoration: none !important;
       font-weight: 700;
+      display: inline;
       transition: color 0.15s ease;
 
       &:hover {
         color: var(--secondary) !important;
       }
     }
+
+    &::after {
+      position: absolute;
+      right: 0;
+      top: 0;
+      font-family: var(--codeFont);
+      font-size: 0.68rem;
+      font-weight: 600;
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      line-height: 1.3;
+    }
   }
 
+  // Triệt tiêu disc bullet và padding mặc định của article ul
+  article ul,
   ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
   }
 
+  article li,
   li {
-    margin: 0;
-    padding: 0.15rem 0;
+    margin: 0 !important;
+    padding: 0.18rem 0 !important;
+    list-style: none !important;
 
     // Link lệnh dòng điều khiển Console (> command)
     a,
@@ -143,9 +186,9 @@ body {
       font-family: var(--codeFont);
       color: var(--darkgray) !important;
       background: transparent !important;
-      padding: 0.28rem 0.55rem !important;
+      padding: 0.3rem 0.55rem !important;
       border-radius: 4px;
-      font-size: 0.85rem;
+      font-size: 0.86rem;
       font-weight: 500;
       text-decoration: none !important;
       display: flex;
@@ -159,7 +202,7 @@ body {
         color: var(--secondary);
         font-weight: 700;
         font-size: 0.85rem;
-        opacity: 0.7;
+        opacity: 0.65;
         transition: transform 0.15s ease, opacity 0.15s ease;
       }
 
@@ -176,18 +219,13 @@ body {
     }
   }
 
-  // Phân loại mã hệ thống & thông số chuẩn SCADA
   // 1. LV System
   &:nth-child(1) {
     border-left-color: #0284c7;
     h3::after {
       content: "400V / 50Hz";
-      font-size: 0.68rem;
-      font-weight: 600;
-      color: var(--gray);
-      background: rgba(2, 132, 199, 0.08);
-      padding: 0.15rem 0.45rem;
-      border-radius: 3px;
+      color: #0284c7;
+      background: rgba(2, 132, 199, 0.1);
     }
     &:hover { border-color: #0284c7; }
   }
@@ -197,12 +235,8 @@ body {
     border-left-color: #8b5cf6;
     h3::after {
       content: "IEC 62040";
-      font-size: 0.68rem;
-      font-weight: 600;
-      color: var(--gray);
-      background: rgba(139, 92, 246, 0.08);
-      padding: 0.15rem 0.45rem;
-      border-radius: 3px;
+      color: #8b5cf6;
+      background: rgba(139, 92, 246, 0.1);
     }
     &:hover { border-color: #8b5cf6; }
   }
@@ -212,12 +246,8 @@ body {
     border-left-color: #f59e0b;
     h3::after {
       content: "ANSI/TIA-942";
-      font-size: 0.68rem;
-      font-weight: 600;
-      color: var(--gray);
-      background: rgba(245, 158, 11, 0.08);
-      padding: 0.15rem 0.45rem;
-      border-radius: 3px;
+      color: #d97706;
+      background: rgba(245, 158, 11, 0.1);
     }
     &:hover { border-color: #f59e0b; }
   }
@@ -227,12 +257,8 @@ body {
     border-left-color: #06b6d4;
     h3::after {
       content: "TOA / EWIS";
-      font-size: 0.68rem;
-      font-weight: 600;
-      color: var(--gray);
-      background: rgba(6, 182, 212, 0.08);
-      padding: 0.15rem 0.45rem;
-      border-radius: 3px;
+      color: #0891b2;
+      background: rgba(6, 182, 212, 0.1);
     }
     &:hover { border-color: #06b6d4; }
   }
@@ -242,12 +268,8 @@ body {
     border-left-color: #ef4444;
     h3::after {
       content: "TCVN 13456";
-      font-size: 0.68rem;
-      font-weight: 600;
-      color: var(--gray);
-      background: rgba(239, 68, 68, 0.08);
-      padding: 0.15rem 0.45rem;
-      border-radius: 3px;
+      color: #dc2626;
+      background: rgba(239, 68, 68, 0.1);
     }
     &:hover { border-color: #ef4444; }
   }
@@ -257,12 +279,8 @@ body {
     border-left-color: #10b981;
     h3::after {
       content: "EARTHING";
-      font-size: 0.68rem;
-      font-weight: 600;
-      color: var(--gray);
-      background: rgba(16, 185, 129, 0.08);
-      padding: 0.15rem 0.45rem;
-      border-radius: 3px;
+      color: #059669;
+      background: rgba(16, 185, 129, 0.1);
     }
     &:hover { border-color: #10b981; }
   }
@@ -272,19 +290,15 @@ body {
     border-left-color: #84cc16;
     h3::after {
       content: "SMART BMS";
-      font-size: 0.68rem;
-      font-weight: 600;
-      color: var(--gray);
-      background: rgba(132, 204, 22, 0.08);
-      padding: 0.15rem 0.45rem;
-      border-radius: 3px;
+      color: #65a30d;
+      background: rgba(132, 204, 22, 0.1);
     }
     &:hover { border-color: #84cc16; }
   }
 }
 
 // ------------------------------------------------------------
-//  4. Liên kết nội bộ toàn trang (Clean Monospace Tech Link)
+//  5. Liên kết nội bộ toàn trang (Clean Monospace Tech Link)
 // ------------------------------------------------------------
 a.internal {
   background-color: transparent;
@@ -306,7 +320,7 @@ a.internal {
 }
 
 // ------------------------------------------------------------
-//  5. Sidebar & Điều hướng
+//  6. Sidebar & Điều hướng
 // ------------------------------------------------------------
 .left.sidebar,
 .right.sidebar {
@@ -327,7 +341,7 @@ a.internal {
 }
 
 // ------------------------------------------------------------
-//  6. Graph view — Tinh gọn, khung kỹ thuật
+//  7. Graph view — Tinh gọn, khung kỹ thuật
 // ------------------------------------------------------------
 .graph {
   .graph-outer {
@@ -360,7 +374,7 @@ a.internal {
 }
 
 // ------------------------------------------------------------
-//  7. Khối công thức kỹ thuật (SCADA Calc Bracket)
+//  8. Khối công thức kỹ thuật (SCADA Calc Bracket)
 // ------------------------------------------------------------
 .katex-display {
   position: relative;
@@ -387,7 +401,7 @@ a.internal {
 }
 
 // ------------------------------------------------------------
-//  8. Bảng tra số liệu Datasheet (Industrial Matrix Table)
+//  9. Bảng tra số liệu Datasheet (Industrial Matrix Table)
 // ------------------------------------------------------------
 pre {
   border-radius: 6px;
@@ -444,7 +458,7 @@ table {
 }
 
 // ------------------------------------------------------------
-//  9. Sơ đồ nguyên lý, Hình ảnh & Video (Technical Single-Line Drawings)
+//  10. Sơ đồ nguyên lý, Hình ảnh & Video (Technical Single-Line Drawings)
 // ------------------------------------------------------------
 article img {
   display: block;
@@ -471,7 +485,7 @@ article video {
 }
 
 // ------------------------------------------------------------
-//  10. Tiêu đề mục kỹ thuật (Technical Section Headings)
+//  11. Tiêu đề mục kỹ thuật (Technical Section Headings)
 // ------------------------------------------------------------
 article h2 {
   display: flex;
@@ -498,7 +512,7 @@ article h3 {
 }
 
 // ------------------------------------------------------------
-//  11. Callout theo chuẩn SCADA
+//  12. Callout theo chuẩn SCADA
 // ------------------------------------------------------------
 .callout {
   border-radius: 6px;
@@ -515,7 +529,7 @@ article h3 {
 .callout[data-callout="important"] { border-left-color: #6366f1; }
 
 // ------------------------------------------------------------
-//  12. Tag dạng chip kỹ thuật
+//  13. Tag dạng chip kỹ thuật
 // ------------------------------------------------------------
 .tag-link {
   font-family: var(--codeFont);
@@ -533,7 +547,7 @@ article h3 {
 }
 
 // ------------------------------------------------------------
-//  13. Mobile Responsive
+//  14. Mobile Responsive
 // ------------------------------------------------------------
 @media all and (max-width: 800px) {
   .hero {
