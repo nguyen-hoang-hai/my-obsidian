@@ -1,13 +1,13 @@
 // ============================================================
-//  custom.scss — SCADA / Industrial Console Theme for Quartz v5
-//  Phong cách: Bảng điều khiển Giám sát Cơ Điện / Phòng Máy Data Center
+//  custom.scss — Enterprise Engineering Portal Theme for Quartz v5
+//  Phong cách: Cổng Tra Cứu Kỹ Thuật Doanh Nghiệp (Schneider / Siemens Style)
+//  Tối ưu: Tinh gọn, loại bỏ mã tiêu chuẩn cụ thể, trực quan, chuyên nghiệp
 //  Đặt tại: quartz/styles/custom.scss
 // ============================================================
 
 // ------------------------------------------------------------
 //  1. Nền Top Ambient Glow (Linear / Vercel Developer Style)
-//     Loại bỏ hoàn toàn lưới kẻ 24px để chống mỏi mắt và chống ảo ảnh thị giác.
-//     Tạo chiều sâu kỹ thuật với vệt sáng công nghệ tỏa từ đỉnh trang.
+//     Nền phẳng dịu mắt, vệt sáng nhẹ ở đỉnh trang chống mỏi mắt khi đọc lâu
 // ------------------------------------------------------------
 html::before {
   content: "";
@@ -34,9 +34,9 @@ body {
 }
 
 .center article {
-  border-radius: 8px;
-  padding: 2rem 2.5rem;
-  line-height: 1.7;
+  border-radius: 10px;
+  padding: 2.2rem 2.6rem;
+  line-height: 1.75;
 }
 
 // ------------------------------------------------------------
@@ -59,36 +59,36 @@ body[data-slug="index"] {
 }
 
 // ------------------------------------------------------------
-//  3. Hero — Bảng điều khiển trung tâm (Control Console Header)
+//  3. Hero — Cổng tra cứu kỹ thuật doanh nghiệp (Enterprise Portal Header)
 // ------------------------------------------------------------
 .hero {
   position: relative;
   margin: 0 0 2rem;
-  padding: 2rem 2.2rem;
-  border-radius: 8px;
+  padding: 2.2rem 2.4rem;
+  border-radius: 10px;
   border: 1px solid var(--lightgray);
   background-color: var(--light);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
 
-  // Chỉ báo trạng thái vận hành hệ thống (dùng mã Unicode an toàn)
+  // Huy hiệu nhận diện cổng kỹ thuật (Enterprise Portal Badge - Tinh gọn, không liệt kê tiêu chuẩn)
   &::before {
-    content: "\25CF  SYS::ONLINE  //  M&E INFRASTRUCTURE DATABASE  //  STANDARDS: IEC \00B7 ISO \00B7 TCVN";
+    content: "\25CF  ELECTRICAL SYSTEM PORTAL  //  M&E REPOSITORY  //  31 DOCUMENTS";
     display: inline-block;
     font-family: var(--codeFont);
     font-size: 0.72rem;
     font-weight: 600;
-    letter-spacing: 0.06em;
-    color: #16a34a;
-    background: rgba(22, 163, 74, 0.1);
-    border: 1px solid rgba(22, 163, 74, 0.28);
-    padding: 0.25rem 0.65rem;
-    border-radius: 4px;
-    margin-bottom: 0.9rem;
+    letter-spacing: 0.05em;
+    color: #10b981;
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.25);
+    padding: 0.28rem 0.75rem;
+    border-radius: 9999px;
+    margin-bottom: 0.95rem;
   }
 
   h1 {
     margin: 0 0 0.5rem;
-    font-size: 2.1rem;
+    font-size: 2.15rem;
     font-weight: 750;
     letter-spacing: -0.02em;
     color: var(--dark);
@@ -101,51 +101,51 @@ body[data-slug="index"] {
 
   p {
     margin: 0;
-    max-width: 68ch;
+    max-width: 72ch;
     color: var(--darkgray);
-    font-size: 1rem;
+    font-size: 0.98rem;
     font-weight: 480;
-    line-height: 1.6;
+    line-height: 1.65;
   }
 }
 
 // ------------------------------------------------------------
-//  4. SCADA Panels — Khối điều khiển phân vùng kỹ thuật
+//  4. Enterprise Modules — Khối phân hệ kỹ thuật cơ điện (Thẻ Module chuẩn Quốc tế)
 // ------------------------------------------------------------
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.35rem;
   margin: 0 0 2.5rem;
 }
 
 .card {
   position: relative;
-  padding: 1.3rem 1.45rem;
-  border-radius: 6px;
+  padding: 1.4rem 1.55rem;
+  border-radius: 10px;
   border: 1px solid var(--lightgray);
   background-color: var(--light);
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
-  border-left: 4px solid var(--secondary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  border-top: 3px solid var(--secondary);
   transition:
-    border-color 0.18s ease,
-    box-shadow 0.18s ease,
-    transform 0.18s ease;
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.07);
   }
 
-  // Tiêu đề Panel kỹ thuật (cố định badge bên phải, giữ emoji và text liền nhau)
+  // Tiêu đề Module kỹ thuật
   h3 {
     position: relative;
-    margin: 0 0 0.9rem;
-    padding-bottom: 0.55rem;
-    padding-right: 90px;
-    border-bottom: 1px dashed var(--lightgray);
-    font-family: var(--codeFont);
-    font-size: 0.95rem;
+    margin: 0 0 0.95rem;
+    padding-bottom: 0.65rem;
+    padding-right: 95px;
+    border-bottom: 1px solid var(--lightgray);
+    font-family: var(--headerFont);
+    font-size: 0.98rem;
     line-height: 1.4;
 
     // Ẩn anchor link mặc định của Quartz trong card
@@ -168,6 +168,7 @@ body[data-slug="index"] {
       }
     }
 
+    // Badge số lượng chuyên mục (Thay thế hoàn toàn nhãn mã tiêu chuẩn cũ)
     &::after {
       position: absolute;
       right: 0;
@@ -175,9 +176,12 @@ body[data-slug="index"] {
       font-family: var(--codeFont);
       font-size: 0.68rem;
       font-weight: 600;
-      padding: 0.15rem 0.45rem;
-      border-radius: 3px;
+      padding: 0.18rem 0.55rem;
+      border-radius: 9999px;
       line-height: 1.3;
+      border: 1px solid var(--lightgray);
+      background-color: var(--light);
+      color: var(--darkgray);
     }
   }
 
@@ -192,121 +196,129 @@ body[data-slug="index"] {
   article li,
   li {
     margin: 0 !important;
-    padding: 0.18rem 0 !important;
+    padding: 0.2rem 0 !important;
     list-style: none !important;
 
-    // Link lệnh dòng điều khiển Console (> command)
+    // Link chuyên mục dạng thẻ chip tinh gọn với mũi tên →
     a,
     a.internal {
-      font-family: var(--codeFont);
+      font-family: var(--bodyFont);
       color: var(--darkgray) !important;
       background: transparent !important;
-      padding: 0.3rem 0.55rem !important;
-      border-radius: 4px;
-      font-size: 0.86rem;
+      padding: 0.35rem 0.6rem !important;
+      border-radius: 6px;
+      font-size: 0.88rem;
       font-weight: 500;
       text-decoration: none !important;
       display: flex;
       align-items: center;
-      gap: 0.5rem;
-      transition: all 0.15s ease;
+      justify-content: space-between;
+      transition: all 0.18s ease;
 
-      &::before {
-        content: ">";
+      &::after {
+        content: "\2192"; // mũi tên →
         font-family: var(--codeFont);
         color: var(--secondary);
         font-weight: 700;
-        font-size: 0.85rem;
-        opacity: 0.65;
-        transition: transform 0.15s ease, opacity 0.15s ease;
+        font-size: 0.9rem;
+        opacity: 0.45;
+        transition: transform 0.18s ease, opacity 0.18s ease;
       }
 
       &:hover {
         color: var(--dark) !important;
         background-color: var(--highlight) !important;
-        transform: translateX(4px);
+        transform: translateX(3px);
 
-        &::before {
+        &::after {
           opacity: 1;
           color: var(--secondary);
+          transform: translateX(2px);
         }
       }
     }
   }
 
-  // 1. LV System
+  // 1. LV System (Hạ thế - 4 bài)
   &:nth-child(1) {
-    border-left-color: #0284c7;
+    border-top-color: #0284c7;
     h3::after {
-      content: "400V / 50Hz";
+      content: "4 CHUY\00CAN M\1EE4C";
       color: #0284c7;
-      background: rgba(2, 132, 199, 0.1);
+      background: rgba(2, 132, 199, 0.08);
+      border-color: rgba(2, 132, 199, 0.2);
     }
     &:hover { border-color: #0284c7; }
   }
 
-  // 2. UPS System
+  // 2. UPS System (Lưu điện - 3 bài)
   &:nth-child(2) {
-    border-left-color: #8b5cf6;
+    border-top-color: #8b5cf6;
     h3::after {
-      content: "IEC 62040";
+      content: "3 CHUY\00CAN M\1EE4C";
       color: #8b5cf6;
-      background: rgba(139, 92, 246, 0.1);
+      background: rgba(139, 92, 246, 0.08);
+      border-color: rgba(139, 92, 246, 0.2);
     }
     &:hover { border-color: #8b5cf6; }
   }
 
-  // 3. Generator
+  // 3. Generator (Máy phát - 4 bài)
   &:nth-child(3) {
-    border-left-color: #f59e0b;
+    border-top-color: #f59e0b;
     h3::after {
-      content: "ANSI/TIA-942";
+      content: "4 CHUY\00CAN M\1EE4C";
       color: #d97706;
-      background: rgba(245, 158, 11, 0.1);
+      background: rgba(245, 158, 11, 0.08);
+      border-color: rgba(245, 158, 11, 0.2);
     }
     &:hover { border-color: #f59e0b; }
   }
 
-  // 4. ELV System
+  // 4. ELV System (Điện nhẹ - 3 bài)
   &:nth-child(4) {
-    border-left-color: #06b6d4;
+    border-top-color: #06b6d4;
     h3::after {
-      content: "TOA / EWIS";
+      content: "3 CHUY\00CAN M\1EE4C";
       color: #0891b2;
-      background: rgba(6, 182, 212, 0.1);
+      background: rgba(6, 182, 212, 0.08);
+      border-color: rgba(6, 182, 212, 0.2);
     }
     &:hover { border-color: #06b6d4; }
   }
 
-  // 5. Fire Safety
+  // 5. Fire Safety (PCCC - 2 bài)
   &:nth-child(5) {
-    border-left-color: #ef4444;
+    border-top-color: #ef4444;
     h3::after {
-      content: "TCVN 13456";
+      content: "2 CHUY\00CAN M\1EE4C";
       color: #dc2626;
-      background: rgba(239, 68, 68, 0.1);
+      background: rgba(239, 68, 68, 0.08);
+      border-color: rgba(239, 68, 68, 0.2);
     }
     &:hover { border-color: #ef4444; }
   }
 
-  // 6. Protection System
+  // 6. Protection System (Bảo vệ & Nối đất - 2 bài)
   &:nth-child(6) {
-    border-left-color: #10b981;
+    border-top-color: #10b981;
     h3::after {
-      content: "EARTHING";
+      content: "2 CHUY\00CAN M\1EE4C";
       color: #059669;
-      background: rgba(16, 185, 129, 0.1);
+      background: rgba(16, 185, 129, 0.08);
+      border-color: rgba(16, 185, 129, 0.2);
     }
     &:hover { border-color: #10b981; }
   }
 
-  // 7. Solutions
+  // 7. Solutions (Giải pháp - 1 bài)
   &:nth-child(7) {
-    border-left-color: #84cc16;
+    border-top-color: #84cc16;
     h3::after {
-      content: "SMART BMS";
+      content: "1 CHUY\00CAN M\1EE4C";
       color: #65a30d;
-      background: rgba(132, 204, 22, 0.1);
+      background: rgba(132, 204, 22, 0.08);
+      border-color: rgba(132, 204, 22, 0.2);
     }
     &:hover { border-color: #84cc16; }
   }
