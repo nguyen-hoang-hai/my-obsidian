@@ -264,7 +264,7 @@ plugins:
       position: footer
       priority: 50
   - source: "@quartz-community/recent-notes"
-    enabled: true                        # bật lại để trang chủ giống dashboard kiến thức
+    enabled: false                        # tắt theo yêu cầu người dùng
     options:
       limit: 10
   - source: "@quartz-community/spacer"

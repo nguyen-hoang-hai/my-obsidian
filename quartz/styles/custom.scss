@@ -110,217 +110,296 @@ body[data-slug="index"] {
 }
 
 // ------------------------------------------------------------
-//  4. Enterprise Modules — Khối phân hệ kỹ thuật cơ điện (Thẻ Module chuẩn Quốc tế)
+//  4. Enterprise System Portal Grid — 7 Phân Hệ Kỹ Thuật Lớn
+//     Thiết kế dạng Dashboard Thẻ Kỹ Thuật Số (WAO Executive Portal)
 // ------------------------------------------------------------
+.system-grid,
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 1.35rem;
-  margin: 0 0 2.5rem;
+  gap: 1.45rem;
+  margin: 1.8rem 0 3.2rem;
 }
 
+// Thẻ chuyên mục lớn (Major System Portal Card)
+a.system-card,
+a.system-card.internal,
+a.system-card.internal-link,
+.system-card,
 .card {
   position: relative;
-  padding: 1.4rem 1.55rem;
-  border-radius: 10px;
-  border: 1px solid var(--lightgray);
-  background-color: var(--light);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
-  border-top: 3px solid var(--secondary);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.65rem 1.75rem !important;
+  border-radius: 14px;
+  border: 1px solid var(--lightgray) !important;
+  background-color: var(--light) !important;
+  text-decoration: none !important;
+  text-decoration-style: none !important;
+  text-underline-offset: 0 !important;
+  color: var(--dark) !important;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.035);
   transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease,
-    transform 0.2s ease;
+    transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.28s ease,
+    background-color 0.28s ease;
+  overflow: hidden;
+  cursor: pointer;
 
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.07);
+  // Thanh accent chỉ thị kỹ thuật trên đầu thẻ
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--system-color, var(--secondary));
+    border-radius: 14px 14px 0 0;
+    transition: height 0.25s ease;
   }
 
-  // Tiêu đề Module kỹ thuật
-  h3 {
-    position: relative;
-    margin: 0 0 0.95rem;
-    padding-bottom: 0.65rem;
-    padding-right: 95px;
-    border-bottom: 1px solid var(--lightgray);
-    font-family: var(--headerFont);
-    font-size: 0.98rem;
-    line-height: 1.4;
+  // Vệt sáng glow tinh tế góc trên phải
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 140px;
+    height: 140px;
+    background: radial-gradient(circle at top right, rgba(var(--system-rgb, 2, 132, 199), 0.12), transparent 70%);
+    pointer-events: none;
+    border-radius: 0 14px 0 0;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+  }
 
-    // Ẩn anchor link mặc định của Quartz trong card
-    a[role="anchor"] {
-      display: none !important;
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08), 0 0 24px rgba(var(--system-rgb, 2, 132, 199), 0.14) !important;
+    border-color: rgba(var(--system-rgb, 2, 132, 199), 0.5) !important;
+    text-decoration: none !important;
+    text-decoration-style: none !important;
+
+    &::before {
+      height: 6px;
     }
 
-    a,
-    a.internal {
-      color: var(--dark) !important;
-      background: transparent !important;
-      padding: 0 !important;
-      text-decoration: none !important;
-      font-weight: 700;
-      display: inline;
-      transition: color 0.15s ease;
+    &::after {
+      opacity: 1;
+    }
 
-      &:hover {
-        color: var(--secondary) !important;
+    .system-icon-box {
+      transform: scale(1.1) rotate(-3deg);
+      box-shadow: 0 6px 16px rgba(var(--system-rgb, 2, 132, 199), 0.25);
+    }
+
+    .system-card-content h3 {
+      color: var(--system-color);
+    }
+
+    .system-card-action {
+      color: var(--system-color);
+
+      .system-arrow {
+        transform: translateX(6px);
+      }
+    }
+  }
+
+  // Khối hàng đầu: Icon + Badge
+  .system-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.15rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .system-icon-box {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    line-height: 1;
+    background: rgba(var(--system-rgb, 2, 132, 199), 0.1);
+    border: 1px solid rgba(var(--system-rgb, 2, 132, 199), 0.22);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+  }
+
+  .system-badge {
+    font-family: var(--headerFont);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    padding: 0.32rem 0.75rem;
+    border-radius: 9999px;
+    color: var(--system-color);
+    background: rgba(var(--system-rgb, 2, 132, 199), 0.08);
+    border: 1px solid rgba(var(--system-rgb, 2, 132, 199), 0.22);
+    text-transform: uppercase;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+
+  // Khối nội dung: Tiêu đề + Phụ đề + Mô tả
+  .system-card-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+
+    h3 {
+      margin: 0 0 0.3rem 0 !important;
+      padding: 0 !important;
+      border: none !important;
+      font-family: var(--headerFont);
+      font-size: 1.28rem;
+      font-weight: 750;
+      color: var(--dark);
+      letter-spacing: -0.015em;
+      transition: color 0.2s ease;
+
+      // Triệt tiêu anchor svg mặc định của Quartz
+      a[role="anchor"] {
+        display: none !important;
       }
     }
 
-    // Badge số lượng chuyên mục (Thay thế hoàn toàn nhãn mã tiêu chuẩn cũ)
-    &::after {
-      position: absolute;
-      right: 0;
-      top: 0;
+    .system-subtitle {
       font-family: var(--headerFont);
-      font-size: 0.72rem;
+      font-size: 0.86rem;
       font-weight: 600;
-      padding: 0.2rem 0.6rem;
-      border-radius: 9999px;
-      line-height: 1.3;
-      border: 1px solid var(--lightgray);
-      background-color: var(--light);
+      color: var(--system-color);
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.01em;
+    }
+
+    p {
+      margin: 0 !important;
+      font-family: var(--bodyFont);
+      font-size: 0.9rem;
+      line-height: 1.62;
       color: var(--darkgray);
     }
   }
 
-  // Triệt tiêu disc bullet và padding mặc định của article ul
-  article ul,
-  ul {
-    margin: 0 !important;
-    padding: 0 !important;
-    list-style: none !important;
-  }
+  // Khối chân thẻ: Action link & arrow
+  .system-card-action {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1.35rem;
+    padding-top: 0.9rem;
+    border-top: 1px solid var(--lightgray);
+    font-family: var(--headerFont);
+    font-size: 0.86rem;
+    font-weight: 650;
+    color: var(--darkgray);
+    position: relative;
+    z-index: 2;
+    transition: color 0.2s ease;
 
-  article li,
-  li {
-    margin: 0 !important;
-    padding: 0.2rem 0 !important;
-    list-style: none !important;
-
-    // Link chuyên mục dạng thẻ chip tinh gọn với mũi tên →
-    a,
-    a.internal {
-      font-family: var(--bodyFont);
-      color: var(--darkgray) !important;
-      background: transparent !important;
-      padding: 0.35rem 0.6rem !important;
-      border-radius: 6px;
-      font-size: 0.88rem;
-      font-weight: 500;
-      text-decoration: none !important;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      transition: all 0.18s ease;
-
-      &::after {
-        content: "\2192"; // mũi tên →
-        font-family: var(--codeFont);
-        color: var(--secondary);
-        font-weight: 700;
-        font-size: 0.9rem;
-        opacity: 0.45;
-        transition: transform 0.18s ease, opacity 0.18s ease;
-      }
-
-      &:hover {
-        color: var(--dark) !important;
-        background-color: var(--highlight) !important;
-        transform: translateX(3px);
-
-        &::after {
-          opacity: 1;
-          color: var(--secondary);
-          transform: translateX(2px);
-        }
-      }
+    .system-arrow {
+      font-family: var(--codeFont);
+      font-size: 1.15rem;
+      font-weight: 700;
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
   }
 
-  // 1. LV System (Hạ thế - 4 bài)
-  &:nth-child(1) {
-    border-top-color: #0284c7;
-    h3::after {
-      content: "4 CHUY\0000CAN M\001EE4C";
-      color: #0284c7;
-      background: rgba(2, 132, 199, 0.08);
-      border-color: rgba(2, 132, 199, 0.2);
-    }
-    &:hover { border-color: #0284c7; }
+  // 1. LV System (Xanh điện / Electric Sky)
+  &.system-lv {
+    --system-color: #0284c7;
+    --system-rgb: 2, 132, 199;
   }
 
-  // 2. UPS System (Lưu điện - 3 bài)
-  &:nth-child(2) {
-    border-top-color: #8b5cf6;
-    h3::after {
-      content: "3 CHUY\0000CAN M\001EE4C";
-      color: #8b5cf6;
-      background: rgba(139, 92, 246, 0.08);
-      border-color: rgba(139, 92, 246, 0.2);
-    }
-    &:hover { border-color: #8b5cf6; }
+  // 2. UPS (Tím công nghệ / Deep Violet)
+  &.system-ups {
+    --system-color: #8b5cf6;
+    --system-rgb: 139, 92, 246;
   }
 
-  // 3. Generator (Máy phát - 4 bài)
-  &:nth-child(3) {
-    border-top-color: #f59e0b;
-    h3::after {
-      content: "4 CHUY\0000CAN M\001EE4C";
-      color: #d97706;
-      background: rgba(245, 158, 11, 0.08);
-      border-color: rgba(245, 158, 11, 0.2);
-    }
-    &:hover { border-color: #f59e0b; }
+  // 3. Generator (Hổ phách máy phát / Amber Energy)
+  &.system-gen {
+    --system-color: #d97706;
+    --system-rgb: 217, 119, 6;
   }
 
-  // 4. ELV System (Điện nhẹ - 3 bài)
-  &:nth-child(4) {
-    border-top-color: #06b6d4;
-    h3::after {
-      content: "3 CHUY\0000CAN M\001EE4C";
-      color: #0891b2;
-      background: rgba(6, 182, 212, 0.08);
-      border-color: rgba(6, 182, 212, 0.2);
-    }
-    &:hover { border-color: #06b6d4; }
+  // 4. ELV System (Lam tín hiệu / Cyan Telecommunication)
+  &.system-elv {
+    --system-color: #0891b2;
+    --system-rgb: 8, 145, 178;
   }
 
-  // 5. Fire Safety (PCCC - 2 bài)
-  &:nth-child(5) {
-    border-top-color: #ef4444;
-    h3::after {
-      content: "2 CHUY\0000CAN M\001EE4C";
-      color: #dc2626;
-      background: rgba(239, 68, 68, 0.08);
-      border-color: rgba(239, 68, 68, 0.2);
-    }
-    &:hover { border-color: #ef4444; }
+  // 5. Fire Safety (Đỏ an toàn báo cháy / Coral Red)
+  &.system-fire {
+    --system-color: #dc2626;
+    --system-rgb: 220, 38, 38;
   }
 
-  // 6. Protection System (Bảo vệ & Nối đất - 2 bài)
-  &:nth-child(6) {
-    border-top-color: #10b981;
-    h3::after {
-      content: "2 CHUY\0000CAN M\001EE4C";
-      color: #059669;
-      background: rgba(16, 185, 129, 0.08);
-      border-color: rgba(16, 185, 129, 0.2);
-    }
-    &:hover { border-color: #10b981; }
+  // 6. Protection System (Xanh ngọc tiếp địa bảo vệ / Grounding Emerald)
+  &.system-protect {
+    --system-color: #059669;
+    --system-rgb: 5, 150, 105;
   }
 
-  // 7. Solutions (Giải pháp - 1 bài)
-  &:nth-child(7) {
-    border-top-color: #84cc16;
-    h3::after {
-      content: "1 CHUY\0000CAN M\001EE4C";
-      color: #65a30d;
-      background: rgba(132, 204, 22, 0.08);
-      border-color: rgba(132, 204, 22, 0.2);
+  // 7. Solutions (Xanh chanh giải pháp thông minh / Innovation Lime)
+  &.system-solutions {
+    --system-color: #65a30d;
+    --system-rgb: 101, 163, 13;
+  }
+}
+
+// Điều chỉnh độ sáng và tương phản màu sắc cho Dark Mode
+[saved-theme="dark"] {
+  a.system-card,
+  .system-card {
+    background-color: rgba(22, 27, 34, 0.75) !important;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+
+    .system-card-action {
+      border-top-color: rgba(255, 255, 255, 0.08);
     }
-    &:hover { border-color: #84cc16; }
+
+    &.system-lv {
+      --system-color: #38bdf8;
+      --system-rgb: 56, 189, 248;
+    }
+    &.system-ups {
+      --system-color: #a78bfa;
+      --system-rgb: 167, 139, 250;
+    }
+    &.system-gen {
+      --system-color: #fbbf24;
+      --system-rgb: 251, 191, 36;
+    }
+    &.system-elv {
+      --system-color: #22d3ee;
+      --system-rgb: 34, 211, 238;
+    }
+    &.system-fire {
+      --system-color: #f87171;
+      --system-rgb: 248, 113, 113;
+    }
+    &.system-protect {
+      --system-color: #34d399;
+      --system-rgb: 52, 211, 153;
+    }
+    &.system-solutions {
+      --system-color: #a3e635;
+      --system-rgb: 163, 230, 53;
+    }
   }
 }
 
@@ -626,7 +705,9 @@ article h3 {
     padding: 1.25rem;
   }
 
+  .system-grid,
   .card-grid {
     grid-template-columns: 1fr;
+    gap: 1.15rem;
   }
 }
