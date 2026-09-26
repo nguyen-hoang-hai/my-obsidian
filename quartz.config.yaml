@@ -16,31 +16,31 @@ configuration:
     fontOrigin: googleFonts
     cdnCaching: true
     typography:
-      title: Inter
+      title : Inter
       header: Inter
       body: Inter
-      code: JetBrains Mono          # đổi từ Inter -> monospace thật, để công thức/code không lệch cột
+      code: Inter
     colors:
       lightMode:
-        light: "#F8FAFC"
-        lightgray: "#E2E8F0"
-        gray: "#64748B"
-        darkgray: "#334155"
-        dark: "#0F172A"
-        secondary: "#0284C7"
-        tertiary: "#6366F1"
-        highlight: rgba(2, 132, 199, 0.12)
-        textHighlight: "#38BDF855"
+        light: "#faf8f8"
+        lightgray: "#e5e5e5"
+        gray: "#b8b8b8"
+        darkgray: "#4e4e4e"
+        dark: "#2b2b2b"
+        secondary: "#284b63"
+        tertiary: "#84a59d"
+        highlight: rgba(143, 159, 169, 0.15)
+        textHighlight: "#fff23688"
       darkMode:
-        light: "#0B1220"
-        lightgray: "#172033"
-        gray: "#475569"
-        darkgray: "#CBD5E1"
-        dark: "#F8FAFC"
-        secondary: "#38BDF8"
-        tertiary: "#818CF8"
-        highlight: rgba(56, 189, 248, 0.15)
-        textHighlight: "#38BDF855"
+        light: "#161618"
+        lightgray: "#393639"
+        gray: "#646464"
+        darkgray: "#d4d4d4"
+        dark: "#ebebec"
+        secondary: "#7b97aa"
+        tertiary: "#84a59d"
+        highlight: rgba(143, 159, 169, 0.15)
+        textHighlight: "#b3aa0288"
 plugins:
   - source: "@quartz-community/created-modified-date"
     enabled: true
@@ -121,7 +121,6 @@ plugins:
       passwordField: password
       unlistWhenEncrypted: false
       outputPath: static/encryptedContentIndex.json
-    order: 900                       # thêm order còn thiếu ở bản trước
   - source: "@quartz-community/stacked-pages"
     enabled: false
     layout:
@@ -154,44 +153,8 @@ plugins:
     layout:
       position: left
       priority: 50
-    options:
-      folderClickBehavior: collapse
-      useSavedState: true
-  # LƯU Ý: graph dùng đúng dạng "github:..." theo tài liệu chính thức của plugin.
-  # (Bản trước mình sửa nhầm thành "@quartz-community/graph" — đã revert lại.)
   - source: github:quartz-community/graph
     enabled: true
-    options:
-      # Graph nhỏ ở sidebar phải — tinh chỉnh cân đối theo không gian cột
-      localGraph:
-        drag: true
-        zoom: true
-        depth: 1
-        scale: 1.0
-        repelForce: 0.6          # lực đẩy vừa vặn cho khung hẹp 250px
-        centerForce: 0.35        # lực hút tâm vững để node không lệch khung
-        linkDistance: 35         # khoảng cách dây ngắn gọn
-        fontSize: 0.44
-        opacityScale: 1.0
-        removeTags: ["#"]
-        showTags: false          # lọc bỏ tag rác
-        focusOnHover: true       # hover node làm mờ node không liên quan
-        enableRadial: true       # giữ node phân bổ tròn đều, không xô lệch
-      # Graph toàn cục (bấm icon graph hoặc Ctrl/Cmd + G để mở modal)
-      globalGraph:
-        drag: true
-        zoom: true
-        depth: -1
-        scale: 1.0               # tỷ lệ 1.0 chuẩn để font chữ không bị phóng to 125%
-        repelForce: 0.7          # lực đẩy êm ái, tránh bắn node ra mép ngoài màn hình
-        centerForce: 0.3         # lực hút tâm ổn định giữ đồ thị luôn ở chính giữa
-        linkDistance: 45         # khoảng cách liên kết vừa vặn với toàn bộ 31 ghi chú
-        fontSize: 0.42           # chữ sắc nét, không va chạm đè chồng chữ
-        opacityScale: 1.0
-        removeTags: ["#"]
-        showTags: false          # lọc bỏ tag rác
-        focusOnHover: true       # rọi sáng cụm đang hover
-        enableRadial: true       # phân bố các nhánh tỏa đều 360 độ quanh tâm Electrical System
     layout:
       position: right
       priority: 10
@@ -219,7 +182,7 @@ plugins:
       position: beforeBody
       priority: 20
   - source: "@quartz-community/tag-list"
-    enabled: true                        # bật lại để dùng #iec #ups #generator #datacenter...
+    enabled: false
     layout:
       position: beforeBody
       priority: 30
@@ -258,15 +221,13 @@ plugins:
     enabled: true
     options:
       links:
-        GitHub: https://github.com/nguyen-hoang-hai/my-obsidian
-        LinkedIn: https://www.linkedin.com/in/nhhai/
+        GitHub: https://github.com/jackyzha0/quartz
+        Discord Community: https://discord.gg/cRFFHYye7t
     layout:
       position: footer
       priority: 50
   - source: "@quartz-community/recent-notes"
-    enabled: false                        # tắt theo yêu cầu người dùng
-    options:
-      limit: 10
+    enabled: false
   - source: "@quartz-community/spacer"
     enabled: true
     options: {}
