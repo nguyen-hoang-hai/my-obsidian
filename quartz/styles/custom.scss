@@ -116,15 +116,12 @@ body[data-slug="index"] {
 .system-grid,
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 1.45rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.35rem;
   margin: 1.8rem 0 3.2rem;
 }
 
 // Thẻ chuyên mục lớn (Major System Portal Card)
-a.system-card,
-a.system-card.internal,
-a.system-card.internal-link,
 .system-card,
 .card {
   position: relative;
@@ -136,8 +133,6 @@ a.system-card.internal-link,
   border: 1px solid var(--lightgray) !important;
   background-color: var(--light) !important;
   text-decoration: none !important;
-  text-decoration-style: none !important;
-  text-underline-offset: 0 !important;
   color: var(--dark) !important;
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.035);
   transition:
@@ -147,6 +142,24 @@ a.system-card.internal-link,
     background-color 0.28s ease;
   overflow: hidden;
   cursor: pointer;
+
+  // Link phủ toàn thẻ (Stretched Link Pattern an toàn chuẩn HTML5)
+  .system-card-link {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    border-radius: 14px;
+    text-decoration: none !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    outline: none;
+
+    &::after {
+      display: none !important;
+    }
+  }
 
   // Thanh accent chỉ thị kỹ thuật trên đầu thẻ
   &::before {
@@ -159,6 +172,7 @@ a.system-card.internal-link,
     background: var(--system-color, var(--secondary));
     border-radius: 14px 14px 0 0;
     transition: height 0.25s ease;
+    z-index: 1;
   }
 
   // Vệt sáng glow tinh tế góc trên phải
@@ -174,14 +188,13 @@ a.system-card.internal-link,
     border-radius: 0 14px 0 0;
     opacity: 0.6;
     transition: opacity 0.3s ease;
+    z-index: 1;
   }
 
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08), 0 0 24px rgba(var(--system-rgb, 2, 132, 199), 0.14) !important;
     border-color: rgba(var(--system-rgb, 2, 132, 199), 0.5) !important;
-    text-decoration: none !important;
-    text-decoration-style: none !important;
 
     &::before {
       height: 6px;
@@ -196,6 +209,7 @@ a.system-card.internal-link,
       box-shadow: 0 6px 16px rgba(var(--system-rgb, 2, 132, 199), 0.25);
     }
 
+    .system-title,
     .system-card-content h3 {
       color: var(--system-color);
     }
@@ -257,6 +271,7 @@ a.system-card.internal-link,
     position: relative;
     z-index: 2;
 
+    .system-title,
     h3 {
       margin: 0 0 0.3rem 0 !important;
       padding: 0 !important;
