@@ -1,3 +1,48 @@
 @use "./variables.scss" as *;
 
-// put your custom CSS here!
+// ------------------------------------------------------------
+// 1. Tắt con nháy văn bản (caret) khi click trên trang
+// ------------------------------------------------------------
+* {
+  caret-color: transparent !important;
+}
+
+// Giữ lại con nháy cho ô tìm kiếm
+input,
+textarea,
+[contenteditable="true"] {
+  caret-color: auto !important;
+}
+
+// ------------------------------------------------------------
+// 2. Background có chiều sâu (Top Ambient Glow cao cấp)
+// ------------------------------------------------------------
+html::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, var(--secondary) 50%, transparent 100%);
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+body {
+  background-color: var(--light);
+  background-image: radial-gradient(ellipse 90% 600px at 50% -120px, var(--highlight), transparent 75%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+// ------------------------------------------------------------
+// 3. Tiêu đề sạch sẽ (Bỏ hộp màu xám trên link heading)
+// ------------------------------------------------------------
+h1 a.internal,
+h2 a.internal,
+h3 a.internal {
+  background-color: transparent !important;
+  padding: 0 !important;
+}
