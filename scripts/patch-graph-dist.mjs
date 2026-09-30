@@ -55,3 +55,51 @@ for (const filePath of filesToPatch) {
   fs.writeFileSync(filePath, content, "utf-8");
   console.log(`Successfully patched: ${filePath}`);
 }
+
+// 8. Patch crawl-links so that wikilinks to folder notes (e.g. [[Circuit Breaker & Cable]]) resolve to their proper nested path
+const crawlLinksDist = path.join(
+  process.cwd(),
+  "node_modules",
+  "@quartz-community",
+  "crawl-links",
+  "dist",
+  "index.js"
+);
+if (fs.existsSync(crawlLinksDist)) {
+  let clContent = fs.readFileSync(crawlLinksDist, "utf-8");
+  clContent = clContent.replace(
+    /const parts = slug2\.split\("\/"\);[\s\S]*?return targetCanonical === fileName;[\s\S]*?if \(matchingFileNames\.length === 1\) \{[\s\S]*?const matchedSlug = matchingFileNames\[0\];/,
+    `const parts = slug2.split("/");
+        const fileName = parts.at(-1) === "index" && parts.length > 1 ? parts.at(-2) : parts.at(-1);
+        return targetCanonical === fileName;
+      });
+      if (matchingFileNames.length >= 1) {
+        const matchedSlug = matchingFileNames.find((s) => s.includes("/")) ?? matchingFileNames[0];`
+  );
+  fs.writeFileSync(crawlLinksDist, clContent, "utf-8");
+  console.log(`Successfully patched: ${crawlLinksDist}`);
+}
+
+// 9. Patch @quartz-community/utils transformLink so folder notes are correctly resolved
+const utilsDist = path.join(
+  process.cwd(),
+  "node_modules",
+  "@quartz-community",
+  "utils",
+  "dist",
+  "index.js"
+);
+if (fs.existsSync(utilsDist)) {
+  let utContent = fs.readFileSync(utilsDist, "utf-8");
+  utContent = utContent.replace(
+    /const parts = slug\.split\("\/"\);[\s\S]*?return targetCanonical === fileName;[\s\S]*?if \(matchingFileNames\.length === 1\) \{[\s\S]*?const matchedSlug = matchingFileNames\[0\];/,
+    `const parts = slug.split("/");
+        const fileName = parts.at(-1) === "index" && parts.length > 1 ? parts.at(-2) : parts.at(-1);
+        return targetCanonical === fileName;
+      });
+      if (matchingFileNames.length >= 1) {
+        const matchedSlug = matchingFileNames.find((s) => s.includes("/")) ?? matchingFileNames[0];`
+  );
+  fs.writeFileSync(utilsDist, utContent, "utf-8");
+  console.log(`Successfully patched: ${utilsDist}`);
+}

@@ -3,6 +3,7 @@ title: Circuit Breaker & Cable
 aliases:
   - circuit-breaker-cable
   - Circuit-Breaker-Cable
+  - circuit-breaker--and--cable
 ---
 - Công thức xác định dòng điện tính toán và dòng điện của CB ([[Electrical Cable]]):
 $$  
