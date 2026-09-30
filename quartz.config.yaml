@@ -162,21 +162,21 @@ plugins:
   - source: github:quartz-community/graph
     enabled: true
     options:
-      # Graph nhỏ ở sidebar phải — bố cục lực tự nhiên D3 (Obsidian Organic Clusters)
+      # Graph nhỏ ở sidebar phải — hiển thị toàn bộ đồ thị tri thức như trong Obsidian
       localGraph:
         drag: true
         zoom: true
-        depth: 2                 # hiển thị 2 bậc: hệ thống chính và các nhánh con
-        scale: 1.1
-        repelForce: 0.8          # lực đẩy cân bằng D3, không đè chồng nốt
+        depth: -1                # Hiển thị toàn bộ các ghi chú như trong Obsidian!
+        scale: 0.95
+        repelForce: 0.75         # lực đẩy cân bằng D3
         centerForce: 0.3         # lực hút tâm giữ đồ thị chính giữa
-        linkDistance: 38         # khoảng cách liên kết vừa vặn
-        fontSize: 0.48           # chữ sắc nét, dễ đọc
+        linkDistance: 45         # khoảng cách liên kết vừa vặn
+        fontSize: 0.52           # chữ sắc nét, dễ đọc
         opacityScale: 1.0
         removeTags: ["#"]
         showTags: false          # lọc bỏ tag rác
         focusOnHover: true       # hover sáng rực cụm liên quan, mờ nhánh khác
-        enableRadial: false      # TẮT vòng tròn ép buộc -> Co cụm tự nhiên như Obsidian
+        enableRadial: false      # Bố cục mạng lưới tự nhiên chuẩn Obsidian
       # Graph toàn cục (bấm icon graph hoặc Ctrl/Cmd + G để mở modal)
       globalGraph:
         drag: true
