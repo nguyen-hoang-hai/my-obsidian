@@ -1,9 +1,10 @@
-name: Deploy Quartz site to GitHub Pages
+name: Deploy Quartz site (Cloudflare & GitHub Pages)
  
 on:
   push:
     branches:
       - v5
+  workflow_dispatch:
  
 permissions:
   contents: read
@@ -44,6 +45,16 @@ jobs:
         run: npx quartz plugin install
       - name: Build Quartz
         run: npx quartz build
+      - name: Deploy to Cloudflare Workers
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: c34a73eb1f511d257095ca88b7ce66a3
+        run: |
+          if [ -z "$CLOUDFLARE_API_TOKEN" ]; then
+            echo "::warning::CLOUDFLARE_API_TOKEN secret is not set! Skipping Cloudflare deploy."
+          else
+            npx wrangler deploy
+          fi
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
