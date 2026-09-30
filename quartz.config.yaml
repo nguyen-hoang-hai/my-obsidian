@@ -162,36 +162,36 @@ plugins:
   - source: github:quartz-community/graph
     enabled: true
     options:
-      # Graph nhỏ ở sidebar phải — tinh chỉnh cân đối theo không gian cột
+      # Graph nhỏ ở sidebar phải — bố cục lực tự nhiên D3 (Obsidian Organic Clusters)
       localGraph:
         drag: true
         zoom: true
-        depth: 1
-        scale: 1.0
-        repelForce: 0.6          # lực đẩy vừa vặn cho khung hẹp 250px
-        centerForce: 0.35        # lực hút tâm vững để node không lệch khung
-        linkDistance: 35         # khoảng cách dây ngắn gọn
-        fontSize: 0.44
+        depth: 2                 # hiển thị 2 bậc: hệ thống chính và các nhánh con
+        scale: 1.1
+        repelForce: 0.8          # lực đẩy cân bằng D3, không đè chồng nốt
+        centerForce: 0.3         # lực hút tâm giữ đồ thị chính giữa
+        linkDistance: 38         # khoảng cách liên kết vừa vặn
+        fontSize: 0.48           # chữ sắc nét, dễ đọc
         opacityScale: 1.0
         removeTags: ["#"]
         showTags: false          # lọc bỏ tag rác
-        focusOnHover: true       # hover node làm mờ node không liên quan
-        enableRadial: true       # giữ node phân bổ tròn đều, không xô lệch
+        focusOnHover: true       # hover sáng rực cụm liên quan, mờ nhánh khác
+        enableRadial: false      # TẮT vòng tròn ép buộc -> Co cụm tự nhiên như Obsidian
       # Graph toàn cục (bấm icon graph hoặc Ctrl/Cmd + G để mở modal)
       globalGraph:
         drag: true
         zoom: true
         depth: -1
-        scale: 1.0               # tỷ lệ 1.0 chuẩn để font chữ không bị phóng to 125%
-        repelForce: 0.7          # lực đẩy êm ái, tránh bắn node ra mép ngoài màn hình
-        centerForce: 0.3         # lực hút tâm ổn định giữ đồ thị luôn ở chính giữa
+        scale: 1.0               # tỷ lệ 1.0 chuẩn
+        repelForce: 0.85         # lực đẩy êm ái
+        centerForce: 0.28        # lực hút tâm ổn định
         linkDistance: 45         # khoảng cách liên kết vừa vặn với toàn bộ 31 ghi chú
-        fontSize: 0.42           # chữ sắc nét, không va chạm đè chồng chữ
+        fontSize: 0.45           # chữ sắc nét
         opacityScale: 1.0
         removeTags: ["#"]
         showTags: false          # lọc bỏ tag rác
         focusOnHover: true       # rọi sáng cụm đang hover
-        enableRadial: true       # phân bố các nhánh tỏa đều 360 độ quanh tâm Electrical System
+        enableRadial: false      # TẮT vòng tròn ép buộc -> Tỏa cụm tự nhiên toàn bộ vault
     layout:
       position: right
       priority: 10
