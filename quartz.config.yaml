@@ -22,25 +22,25 @@ configuration:
       code: JetBrains Mono          # đổi từ Inter -> monospace thật, để công thức/code không lệch cột
     colors:
       lightMode:
-        light: "#F8FAFC"
-        lightgray: "#E2E8F0"
-        gray: "#64748B"
-        darkgray: "#334155"
-        dark: "#0F172A"
-        secondary: "#0284C7"
-        tertiary: "#6366F1"
-        highlight: rgba(2, 132, 199, 0.12)
-        textHighlight: "#38BDF855"
+        light: "#faf8f8"
+        lightgray: "#e5e5e5"
+        gray: "#b8b8b8"
+        darkgray: "#4e4e4e"
+        dark: "#2b2b2b"
+        secondary: "#284b63"
+        tertiary: "#84a59d"
+        highlight: rgba(143, 159, 169, 0.15)
+        textHighlight: "#fff23688"
       darkMode:
-        light: "#0B1220"
-        lightgray: "#172033"
-        gray: "#475569"
-        darkgray: "#CBD5E1"
-        dark: "#F8FAFC"
-        secondary: "#38BDF8"
-        tertiary: "#818CF8"
-        highlight: rgba(56, 189, 248, 0.15)
-        textHighlight: "#38BDF855"
+        light: "#161618"
+        lightgray: "#393639"
+        gray: "#646464"
+        darkgray: "#d4d4d4"
+        dark: "#ebebec"
+        secondary: "#7b97aa"
+        tertiary: "#84a59d"
+        highlight: rgba(143, 159, 169, 0.15)
+        textHighlight: "#b3aa0288"
 plugins:
   - source: "@quartz-community/created-modified-date"
     enabled: true
