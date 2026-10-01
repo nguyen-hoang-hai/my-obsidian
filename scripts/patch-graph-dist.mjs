@@ -36,20 +36,26 @@ for (const filePath of filesToPatch) {
     'ee=h(Z.getPropertyValue("--gray").trim(),"#475569")'
   );
 
-  // 6. Smart link resolution: resolve slug variants (folder/index, relative paths)
-  if (!content.includes("function __xu(t)")) {
-    content = content.replace(
-      "Ju=new Set(uu.keys());uu.forEach(function(i,l){for(var F=i.links||[],v=0;v<F.length;v++){var C=cu(F[v]);Ju.has(C)&&eu.push({source:l,target:C})}",
-      'Ju=new Set(uu.keys());function __xu(t){if(Ju.has(t))return t;if(Ju.has(t+"/index"))return t+"/index";for(var k of Ju){if(k===t||k===t+"/index"||k.endsWith("/"+t)||k.endsWith("/"+t+"/index"))return k;}return null;}uu.forEach(function(i,l){for(var F=i.links||[],v=0;v<F.length;v++){var C=__xu(cu(F[v]));C&&eu.push({source:l,target:C})}'
-    );
+  // 6. Smart link resolution: resolve slug variants (folder/, index, relative paths)
+  const s1 = "Ju=new Set(uu.keys());";
+  const e1 = "eu.push({source:l,target:C})";
+  const p1 = content.indexOf(s1);
+  const p2 = content.indexOf(e1, p1);
+  if (p1 !== -1 && p2 !== -1) {
+    const xuCode =
+      'Ju=new Set(uu.keys());function __xu(t){if(!t)return null;var c1=t.endsWith("/")?t:t+"/",c2=t.endsWith("/")?t.slice(0,-1):t;if(Ju.has(c1))return c1;if(Ju.has(c2))return c2;if(Ju.has(c2+"/index"))return c2+"/index";for(var k of Ju){var kC=k.endsWith("/")?k.slice(0,-1):k;if(kC===c2||kC.endsWith("/"+c2)||kC===c2+"/index"||kC.endsWith("/"+c2+"/index"))return k;}return null;}uu.forEach(function(i,l){for(var F=i.links||[],v=0;v<F.length;v++){var C=__xu(cu(F[v]));C&&eu.push({source:l,target:C})';
+    content = content.substring(0, p1) + xuCode + content.substring(p2 + e1.length);
   }
 
   // 7. Auto-hierarchy tree connection: guarantees 100% interconnected graph view regardless of content links
-  if (!content.includes("__autoHierarchyDone")) {
-    const afterLoop = "hu.indexOf(J)===-1&&hu.push(J),eu.push({source:l,target:J})}}});";
-    const hierarchyCode =
-      'hu.indexOf(J)===-1&&hu.push(J),eu.push({source:l,target:J})}}});var __autoHierarchyDone=!0;Ju.forEach(function(k){if(k==="index"||k.startsWith("tags/"))return;var p=k.split("/"),pr="index";if(p.length>2){var fp=p.slice(0,-1).join("/")+"/index";if(Ju.has(fp))pr=fp}else if(p.length===2&&p[1]!=="index"){var fp2=p[0]+"/index";if(Ju.has(fp2))pr=fp2}if(pr&&Ju.has(pr)&&pr!==k){var al=!1;for(var li=0;li<eu.length;li++){if((eu[li].source===pr&&eu[li].target===k)||(eu[li].source===k&&eu[li].target===pr)){al=!0;break}}!al&&eu.push({source:pr,target:k})}});';
-    content = content.replace(afterLoop, hierarchyCode);
+  const s2 = "hu.indexOf(J)===-1&&hu.push(J),eu.push({source:l,target:J})}}});";
+  const e2 = "var tu=new Set;";
+  const q1 = content.indexOf(s2);
+  const q2 = content.indexOf(e2, q1);
+  if (q1 !== -1 && q2 !== -1) {
+    const autoCode =
+      'hu.indexOf(J)===-1&&hu.push(J),eu.push({source:l,target:J})}}});var __autoHierarchyDone=!0;Ju.forEach(function(k){if(k==="/"||k.startsWith("tags/"))return;var cl=k.endsWith("/")?k.slice(0,-1):k,ps=cl.split("/"),pr="/";if(ps.length>1){var pp=ps.slice(0,-1).join("/")+"/";if(Ju.has(pp))pr=pp;}if(pr&&Ju.has(pr)&&pr!==k){var al=!1;for(var li=0;li<eu.length;li++){if((eu[li].source===pr&&eu[li].target===k)||(eu[li].source===k&&eu[li].target===pr)){al=!0;break;}}!al&&eu.push({source:pr,target:k});}});';
+    content = content.substring(0, q1) + autoCode + content.substring(q2);
   }
 
   fs.writeFileSync(filePath, content, "utf-8");

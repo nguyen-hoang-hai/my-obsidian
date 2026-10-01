@@ -22,7 +22,7 @@
     "patch-plugins": "node ./scripts/patch-graph-dist.mjs",
     "prebuild": "npm run install-plugins",
     "build": "npm run patch-plugins && npx quartz build",
-    "deploy": "npm run patch-plugins && npx quartz build && npx wrangler deploy"
+    "deploy": "npm run build && npx wrangler deploy"
   },
   "engines": {
     "npm": ">=10.9.2",
