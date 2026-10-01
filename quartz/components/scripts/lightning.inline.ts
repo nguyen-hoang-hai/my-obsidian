@@ -79,7 +79,7 @@ function removeCanvas() {
     animId = null
   }
   if (ambientTimer) {
-    clearInterval(ambientTimer)
+    clearTimeout(ambientTimer)
     ambientTimer = null
   }
   activeBolts = []
@@ -318,21 +318,44 @@ function strikeTitle() {
   }, 2200)
 }
 
-// Click to strike
-function handleDocumentClick(e: MouseEvent) {
+// Ambient Storm Lightning Scheduler (Frequent & Natural)
+function scheduleAmbientLightning() {
+  if (ambientTimer) clearTimeout(ambientTimer)
   if (!isLightningPage()) return
 
-  // Don't trigger if clicking inside an interactive form element
-  const target = e.target as HTMLElement
-  if (target && ["INPUT", "TEXTAREA", "BUTTON", "SELECT"].includes(target.tagName)) {
-    return
-  }
+  // Random delay between 3.0s and 5.5s for frequent storm feel
+  const nextDelay = 3000 + Math.random() * 2500
 
-  const targetX = e.clientX
-  const targetY = e.clientY
-  const startX = targetX + (Math.random() - 0.5) * 140
+  ambientTimer = setTimeout(() => {
+    if (!isLightningPage()) return
 
-  strike(startX, -10, targetX, targetY, false)
+    const w = window.innerWidth
+    const h = window.innerHeight
+    const type = Math.random()
+
+    if (type < 0.5) {
+      // 1. Forked strike down into page
+      const startX = w * (0.15 + Math.random() * 0.7)
+      const endX = startX + (Math.random() - 0.5) * 200
+      const endY = h * (0.35 + Math.random() * 0.45)
+      strike(startX, -15, endX, endY, Math.random() > 0.6)
+    } else if (type < 0.8) {
+      // 2. Horizontal cloud-to-cloud arc
+      const startX = w * (0.1 + Math.random() * 0.3)
+      const endX = startX + w * (0.3 + Math.random() * 0.4)
+      const startY = 15 + Math.random() * 40
+      const endY = 35 + Math.random() * 70
+      strike(startX, startY, endX, endY, false)
+    } else {
+      // 3. Heavy thunderbolt with double flash
+      const startX = w * (0.25 + Math.random() * 0.5)
+      const endX = startX + (Math.random() - 0.5) * 160
+      const endY = h * (0.4 + Math.random() * 0.35)
+      strike(startX, -10, endX, endY, true)
+    }
+
+    scheduleAmbientLightning()
+  }, nextDelay)
 }
 
 // Setup Page
@@ -349,24 +372,10 @@ function setupLightning() {
     if (isLightningPage()) {
       strikeTitle()
     }
-  }, 320)
+  }, 280)
 
-  // Setup Ambient lightning every 9-14 seconds
-  if (ambientTimer) clearInterval(ambientTimer)
-  ambientTimer = setInterval(() => {
-    if (!isLightningPage()) return
-    const w = window.innerWidth
-    const startX = w * (0.2 + Math.random() * 0.6)
-    const endX = startX + (Math.random() - 0.5) * 200
-    const endY = 80 + Math.random() * 120
-    strike(startX, -10, endX, endY, false)
-  }, 11000)
-
-  if (!isInitialized) {
-    window.removeEventListener("click", handleDocumentClick)
-    window.addEventListener("click", handleDocumentClick)
-    isInitialized = true
-  }
+  // Start frequent ambient storm
+  scheduleAmbientLightning()
 }
 
 // Listen to Quartz SPA navigation
