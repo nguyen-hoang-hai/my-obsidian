@@ -1,17 +1,9 @@
 import { StaticResources } from "../util/resources"
 import { BuildCtx } from "../util/ctx"
-import lightningScript from "../components/scripts/lightning.inline"
-
 export function getStaticResourcesFromPlugins(ctx: BuildCtx) {
   const staticResources: StaticResources = {
     css: [],
-    js: [
-      {
-        loadTime: "afterDOMReady",
-        contentType: "inline",
-        script: lightningScript,
-      },
-    ],
+    js: [],
     additionalHead: [],
   }
 
