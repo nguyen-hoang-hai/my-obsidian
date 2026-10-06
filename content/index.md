@@ -1,48 +1,43 @@
 ---
 title: Electrical System
 ---
-
-# [[LV System]]
-- Circuit Breaker & Cable
-- Cable Tray
-- Capacitor Bank
-- Socket Outlet
-
----
-
-# [[UPS]]
-- VFD
-- VI
-- VFI
+>[!Summary]
+## [[LV System]]
+>Circuit Breaker & Cable
+>Cable Tray
+>Capacitor Bank
+>Socket Outlet
 
 ---
 
-# [[Generator]]
-- Generator Synchronization
-- 'N' & 'N+X' Redundancy
-- Generator Ratings
-- Emergency Generator Topologies
+## [[UPS]]
+>VFD
+>VI
+> VFI
 
 ---
 
-# [[ELV System]]
-- BMS
-- EWIS
-- Public Address
+## [[Generator]]
+>Generator Synchronization
+>'N' & 'N+X' Redundancy
+> Generator Ratings
+>Emergency Generator Topologies
 
 ---
 
-# [[Fire Safety System]]
-- Fire Alarm
-- Exit & Emergency
+## [[ELV System]]
+>BMS
+> EWIS
+>Public Address
 
 ---
 
-# [[Protection System]]
-- Earthing & Grounding
-- Lightning
+## [[Fire Safety System]]
+>Fire Alarm
+>Exit & Emergency
 
 ---
 
-# [[Solutions]]
-- Smart Building - SE
+## [[Protection System]]
+>Earthing & Grounding
+> Lightning
