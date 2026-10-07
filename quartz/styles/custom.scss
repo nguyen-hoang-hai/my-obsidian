@@ -191,29 +191,77 @@ article {
 }
 
 // ------------------------------------------------------------
-// 8. GRAPH (màu theo bảng màu của site)
+// 8. CALLOUT (> [!summary], > [!note]...): đổi sang tông xanh lá của site
+//    Áp dụng cho mọi loại callout, mọi trang. Chỉ các cảnh báo giữ
+//    màu vàng / đỏ để vẫn nhận ra mức độ nghiêm trọng.
 // ------------------------------------------------------------
-.graph {
-  & > .graph-outer {
-    height: 280px;
-    border-radius: 8px;
-    border: 1px solid var(--lightgray);
-    background: radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--secondary) 6%, transparent), transparent 75%);
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
-    &:hover {
-      border-color: var(--secondary);
-      box-shadow: 0 4px 14px color-mix(in srgb, var(--secondary) 18%, transparent);
-    }
-  }
+article .callout {
+  --color: var(--secondary);
+  --border: color-mix(in srgb, var(--secondary) 30%, transparent);
+  --bg: color-mix(in srgb, var(--secondary) 7%, transparent);
+  border-radius: 10px;
+  border-left: 4px solid var(--color);
 }
-.global-graph-outer {
-  backdrop-filter: blur(8px) !important;
-  -webkit-backdrop-filter: blur(8px) !important;
-  & > .global-graph-container {
-    border-radius: 8px !important;
-    border: 1px solid var(--secondary) !important;
-    box-shadow: 0 16px 50px rgba(0, 0, 0, 0.4), 0 0 30px color-mix(in srgb, var(--secondary) 20%, transparent) !important;
-  }
+
+// Nhóm thông tin chung -> xanh lá chính
+article .callout[data-callout="note"],
+article .callout[data-callout="abstract"],
+article .callout[data-callout="summary"],
+article .callout[data-callout="tldr"],
+article .callout[data-callout="info"],
+article .callout[data-callout="todo"],
+article .callout[data-callout="question"],
+article .callout[data-callout="help"],
+article .callout[data-callout="faq"],
+article .callout[data-callout="important"] {
+  --color: var(--secondary);
+  --border: color-mix(in srgb, var(--secondary) 30%, transparent);
+  --bg: color-mix(in srgb, var(--secondary) 7%, transparent);
+}
+
+// Mẹo / thành công -> xanh lá sáng
+article .callout[data-callout="tip"],
+article .callout[data-callout="hint"],
+article .callout[data-callout="success"],
+article .callout[data-callout="check"],
+article .callout[data-callout="done"] {
+  --color: color-mix(in srgb, var(--tertiary) 60%, var(--dark));
+  --border: color-mix(in srgb, var(--tertiary) 40%, transparent);
+  --bg: color-mix(in srgb, var(--tertiary) 10%, transparent);
+}
+
+// Ví dụ / trích dẫn -> xám trung tính
+article .callout[data-callout="example"],
+article .callout[data-callout="quote"],
+article .callout[data-callout="cite"] {
+  --color: color-mix(in srgb, var(--gray) 60%, var(--dark));
+  --border: color-mix(in srgb, var(--gray) 35%, transparent);
+  --bg: color-mix(in srgb, var(--gray) 8%, transparent);
+}
+
+// Cảnh báo -> vàng cam
+article .callout[data-callout="warning"],
+article .callout[data-callout="caution"],
+article .callout[data-callout="attention"] {
+  --color: #d97706;
+  --border: #d9770640;
+  --bg: #d9770610;
+}
+
+// Lỗi / nguy hiểm -> đỏ
+article .callout[data-callout="failure"],
+article .callout[data-callout="fail"],
+article .callout[data-callout="missing"],
+article .callout[data-callout="danger"],
+article .callout[data-callout="error"],
+article .callout[data-callout="bug"] {
+  --color: #dc2626;
+  --border: #dc262640;
+  --bg: #dc262610;
+}
+
+article .callout .callout-title-inner {
+  font-weight: 700;
 }
 
 // ------------------------------------------------------------

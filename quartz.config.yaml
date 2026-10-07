@@ -69,7 +69,7 @@ plugins:
     enabled: true
     order: 40
   - source: "@quartz-community/table-of-contents"
-    enabled: true
+    enabled: false
     order: 50
     layout:
       position: right
@@ -160,7 +160,7 @@ plugins:
       useSavedState: true
   # graph nằm dưới mục lục
   - source: github:quartz-community/graph
-    enabled: true
+    enabled: false
     options:
       localGraph:
         drag: true
