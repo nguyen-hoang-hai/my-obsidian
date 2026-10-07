@@ -19,7 +19,7 @@ configuration:
       title: Inter
       header: Inter
       body: Inter
-      code: JetBrains Mono          # đổi từ Inter -> monospace thật, để công thức/code không lệch cột
+      code: JetBrains Mono
     colors:
       lightMode:
         light: "#F8FAFC"
@@ -73,7 +73,7 @@ plugins:
     order: 50
     layout:
       position: right
-      priority: 30
+      priority: 10          # ĐỔI: mục lục lên đầu cột phải
   - source: "@quartz-community/crawl-links"
     enabled: true
     options:
@@ -121,7 +121,7 @@ plugins:
       passwordField: password
       unlistWhenEncrypted: false
       outputPath: static/encryptedContentIndex.json
-    order: 900                       # thêm order còn thiếu ở bản trước
+    order: 900
   - source: "@quartz-community/stacked-pages"
     enabled: false
     layout:
@@ -149,60 +149,56 @@ plugins:
     enabled: true
   - source: "@quartz-community/tag-page"
     enabled: true
+  # ĐỔI: cột trái chỉ còn Explorer (cây thư mục như mục lục wiki)
   - source: "@quartz-community/explorer"
     enabled: true
     layout:
       position: left
-      priority: 50
+      priority: 10
     options:
       folderClickBehavior: collapse
       useSavedState: true
-  # LƯU Ý: graph dùng đúng dạng "github:..." theo tài liệu chính thức của plugin.
-  # (Bản trước mình sửa nhầm thành "@quartz-community/graph" — đã revert lại.)
+  # ĐỔI: graph xuống dưới mục lục
   - source: github:quartz-community/graph
     enabled: true
     options:
-      # Graph nhỏ ở sidebar phải — hiển thị toàn bộ đồ thị tri thức như trong Obsidian
       localGraph:
         drag: true
         zoom: true
-        depth: -1                # Hiển thị toàn bộ các ghi chú như trong Obsidian!
+        depth: -1
         scale: 0.95
-        repelForce: 0.75         # lực đẩy cân bằng D3
-        centerForce: 0.3         # lực hút tâm giữ đồ thị chính giữa
-        linkDistance: 45         # khoảng cách liên kết vừa vặn
-        fontSize: 0.52           # chữ sắc nét, dễ đọc
+        repelForce: 0.75
+        centerForce: 0.3
+        linkDistance: 45
+        fontSize: 0.52
         opacityScale: 1.0
         removeTags: ["#"]
-        showTags: false          # lọc bỏ tag rác
-        focusOnHover: true       # hover sáng rực cụm liên quan, mờ nhánh khác
-        enableRadial: false      # Bố cục mạng lưới tự nhiên chuẩn Obsidian
-      # Graph toàn cục (bấm icon graph hoặc Ctrl/Cmd + G để mở modal)
+        showTags: false
+        focusOnHover: true
+        enableRadial: false
       globalGraph:
         drag: true
         zoom: true
         depth: -1
-        scale: 1.0               # tỷ lệ 1.0 chuẩn
-        repelForce: 0.85         # lực đẩy êm ái
-        centerForce: 0.28        # lực hút tâm ổn định
-        linkDistance: 45         # khoảng cách liên kết vừa vặn với toàn bộ 31 ghi chú
-        fontSize: 0.45           # chữ sắc nét
+        scale: 1.0
+        repelForce: 0.85
+        centerForce: 0.28
+        linkDistance: 45
+        fontSize: 0.45
         opacityScale: 1.0
         removeTags: ["#"]
-        showTags: false          # lọc bỏ tag rác
-        focusOnHover: true       # rọi sáng cụm đang hover
-        enableRadial: false      # TẮT vòng tròn ép buộc -> Tỏa cụm tự nhiên toàn bộ vault
+        showTags: false
+        focusOnHover: true
+        enableRadial: false
     layout:
       position: right
-      priority: 10
+      priority: 30
+  # ĐỔI: thanh tìm kiếm lên HEADER (thanh đầu trang), kéo dài ở giữa
   - source: "@quartz-community/search"
     enabled: true
     layout:
-      position: left
+      position: header
       priority: 20
-      group: toolbar
-      groupOptions:
-        grow: true
   - source: "@quartz-community/backlinks"
     enabled: true
     layout:
@@ -219,27 +215,27 @@ plugins:
       position: beforeBody
       priority: 20
   - source: "@quartz-community/tag-list"
-    enabled: true                        # bật lại để dùng #iec #ups #generator #datacenter...
+    enabled: true
     layout:
       position: beforeBody
       priority: 30
+  # ĐỔI: tên site lên HEADER, bên trái
   - source: "@quartz-community/page-title"
     enabled: true
     layout:
-      position: left
+      position: header
       priority: 10
+  # ĐỔI: nút sáng/tối và chế độ đọc lên HEADER, bên phải
   - source: "@quartz-community/darkmode"
     enabled: true
     layout:
-      position: left
+      position: header
       priority: 30
-      group: toolbar
   - source: "@quartz-community/reader-mode"
     enabled: true
     layout:
-      position: left
+      position: header
       priority: 35
-      group: toolbar
   - source: "@quartz-community/breadcrumbs"
     enabled: true
     layout:
@@ -268,7 +264,7 @@ plugins:
     options:
       limit: 10
   - source: "@quartz-community/spacer"
-    enabled: true
+    enabled: false           # ĐỔI: không còn dùng vì đã bỏ toolbar ở cột trái
     options: {}
     order: 25
     layout:
@@ -297,11 +293,6 @@ plugins:
       priority: 15
       display: all
 layout:
-  groups:
-    toolbar:
-      priority: 35
-      direction: row
-      gap: 0.5rem
   byPageType:
     "404":
       positions:
