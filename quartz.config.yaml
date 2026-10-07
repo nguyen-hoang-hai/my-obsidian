@@ -22,25 +22,25 @@ configuration:
       code: JetBrains Mono
     colors:
       lightMode:
-        light: "#F8FAFC"
-        lightgray: "#E2E8F0"
-        gray: "#64748B"
-        darkgray: "#334155"
-        dark: "#0F172A"
-        secondary: "#0284C7"
-        tertiary: "#6366F1"
-        highlight: rgba(2, 132, 199, 0.12)
-        textHighlight: "#38BDF855"
+        light: "#FFFFFF"
+        lightgray: "#E3E8E5"
+        gray: "#8A9490"
+        darkgray: "#3C4642"
+        dark: "#1F2729"
+        secondary: "#009E4D"      # xanh lá đậm Schneider: link, tiêu đề, viền
+        tertiary: "#3DCD58"       # xanh lá sáng "Life Green": điểm nhấn
+        highlight: rgba(61, 205, 88, 0.14)
+        textHighlight: "#3DCD5855"
       darkMode:
-        light: "#0B1220"
-        lightgray: "#172033"
-        gray: "#475569"
-        darkgray: "#CBD5E1"
-        dark: "#F8FAFC"
-        secondary: "#38BDF8"
-        tertiary: "#818CF8"
-        highlight: rgba(56, 189, 248, 0.15)
-        textHighlight: "#38BDF855"
+        light: "#0F1214"
+        lightgray: "#232A2C"
+        gray: "#5E6A6D"
+        darkgray: "#D5DBDC"
+        dark: "#F4F6F5"
+        secondary: "#3DCD58"
+        tertiary: "#009E4D"
+        highlight: rgba(61, 205, 88, 0.15)
+        textHighlight: "#3DCD5855"
 plugins:
   - source: "@quartz-community/created-modified-date"
     enabled: true
@@ -149,7 +149,7 @@ plugins:
     enabled: true
   - source: "@quartz-community/tag-page"
     enabled: true
-  # ĐỔI: cột trái chỉ còn Explorer (cây thư mục như mục lục wiki)
+  # ĐỔI: cột trái chỉ còn Explorer
   - source: "@quartz-community/explorer"
     enabled: true
     layout:
@@ -158,7 +158,7 @@ plugins:
     options:
       folderClickBehavior: collapse
       useSavedState: true
-  # ĐỔI: graph xuống dưới mục lục
+  # graph nằm dưới mục lục
   - source: github:quartz-community/graph
     enabled: true
     options:
@@ -193,12 +193,27 @@ plugins:
     layout:
       position: right
       priority: 30
-  # ĐỔI: thanh tìm kiếm lên HEADER (thanh đầu trang), kéo dài ở giữa
+  # ĐỔI: HEADER gồm tên site | tìm kiếm | sáng-tối | chế độ đọc
+  - source: "@quartz-community/page-title"
+    enabled: true
+    layout:
+      position: header
+      priority: 10
   - source: "@quartz-community/search"
     enabled: true
     layout:
       position: header
       priority: 20
+  - source: "@quartz-community/darkmode"
+    enabled: true
+    layout:
+      position: header
+      priority: 30
+  - source: "@quartz-community/reader-mode"
+    enabled: true
+    layout:
+      position: header
+      priority: 35
   - source: "@quartz-community/backlinks"
     enabled: true
     layout:
@@ -219,23 +234,6 @@ plugins:
     layout:
       position: beforeBody
       priority: 30
-  # ĐỔI: tên site lên HEADER, bên trái
-  - source: "@quartz-community/page-title"
-    enabled: true
-    layout:
-      position: header
-      priority: 10
-  # ĐỔI: nút sáng/tối và chế độ đọc lên HEADER, bên phải
-  - source: "@quartz-community/darkmode"
-    enabled: true
-    layout:
-      position: header
-      priority: 30
-  - source: "@quartz-community/reader-mode"
-    enabled: true
-    layout:
-      position: header
-      priority: 35
   - source: "@quartz-community/breadcrumbs"
     enabled: true
     layout:
@@ -264,7 +262,7 @@ plugins:
     options:
       limit: 10
   - source: "@quartz-community/spacer"
-    enabled: false           # ĐỔI: không còn dùng vì đã bỏ toolbar ở cột trái
+    enabled: false
     options: {}
     order: 25
     layout:
@@ -294,21 +292,20 @@ plugins:
       display: all
 layout:
   byPageType:
+    # 404: khung full-width, không sidebar nhưng vẫn có header và footer
     "404":
+      template: full-width
       positions:
         beforeBody: []
         left: []
         right: []
+    # content / folder / tag / bases dùng CHUNG một bố cục
     content: {}
     folder:
       exclude:
         - reader-mode
-      positions:
-        right: []
     tag:
       exclude:
         - reader-mode
-      positions:
-        right: []
     canvas: {}
     bases: {}

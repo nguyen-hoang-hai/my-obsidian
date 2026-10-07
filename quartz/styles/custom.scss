@@ -1,10 +1,15 @@
 @use "./variables.scss" as *;
 
 // ============================================================
-// GIỮ NGUYÊN 4 PHẦN CŨ CỦA BẠN
+// Elec. Wiki - phong cách Schneider Electric / Electrical Installation Guide
+// Màu nằm ở quartz.config.yaml. File này chỉ lo bố cục và kiểu chữ.
+// Mọi quy tắc áp dụng cho TẤT CẢ loại trang (bài viết, trang chủ,
+// folder, tag, bases). Không có luật riêng cho từng trang.
 // ============================================================
 
-// 1. Tắt con nháy văn bản
+// ------------------------------------------------------------
+// 1. Tắt con nháy văn bản (giữ cho ô nhập liệu)
+// ------------------------------------------------------------
 * {
   caret-color: transparent !important;
 }
@@ -14,27 +19,30 @@ textarea,
   caret-color: auto !important;
 }
 
-// 2. Background có chiều sâu
+// ------------------------------------------------------------
+// 2. Nền: vệt sáng xanh lá mảnh ở đỉnh + gradient nhẹ
+// ------------------------------------------------------------
 html::before {
   content: "";
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent 0%, var(--secondary) 50%, transparent 100%);
+  height: 3px;
+  background: linear-gradient(90deg, var(--tertiary) 0%, var(--secondary) 100%);
   z-index: 9999;
   pointer-events: none;
-  opacity: 0.85;
 }
 body {
   background-color: var(--light);
-  background-image: radial-gradient(ellipse 90% 600px at 50% -120px, var(--highlight), transparent 75%);
+  background-image: radial-gradient(ellipse 90% 500px at 50% -150px, var(--highlight), transparent 75%);
   background-attachment: fixed;
   background-repeat: no-repeat;
 }
 
+// ------------------------------------------------------------
 // 3. Tiêu đề sạch sẽ
+// ------------------------------------------------------------
 h1 a.internal,
 h2 a.internal,
 h3 a.internal {
@@ -42,17 +50,159 @@ h3 a.internal {
   padding: 0 !important;
 }
 
-// 4. Graph View
+// ------------------------------------------------------------
+// 4. HEADER (nằm trên đầu cột nội dung): tên site | tìm kiếm | nút
+// ------------------------------------------------------------
+.page header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem 1rem;
+  margin: 0 0 1.2rem;
+  padding: 0.7rem 0;
+  border-bottom: 2px solid var(--secondary);
+  background: color-mix(in srgb, var(--light) 92%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  .page-title {
+    margin: 0;
+    flex: 0 0 auto;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+  }
+  .search {
+    flex: 1 1 220px;
+    min-width: 0;
+    max-width: 520px;
+  }
+  .search .search-button {
+    width: 100%;
+  }
+  .darkmode,
+  .readermode {
+    flex: 0 0 auto;
+  }
+}
+
+// ------------------------------------------------------------
+// 5. EXPLORER (cột trái): mục cha và mục con cùng một kiểu chữ
+//    Phân cấp chỉ thể hiện bằng mũi tên và thụt lề.
+// ------------------------------------------------------------
+.explorer {
+  a,
+  button,
+  span,
+  li,
+  .folder-title,
+  .folder-button {
+    font-family: var(--bodyFont) !important;
+    font-size: 0.95rem !important;
+    font-weight: 500 !important;
+    line-height: 1.45 !important;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
+    color: var(--darkgray) !important;
+    opacity: 1 !important;
+  }
+  a,
+  .folder-button {
+    border-radius: 6px;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+  a:hover,
+  a:hover span,
+  .folder-button:hover,
+  .folder-button:hover span {
+    background: var(--highlight);
+    color: var(--secondary) !important;
+  }
+  a.active,
+  a.active span {
+    color: var(--secondary) !important;
+    font-weight: 600 !important;
+  }
+}
+
+// ------------------------------------------------------------
+// 6. NỘI DUNG BÀI VIẾT
+// ------------------------------------------------------------
+article {
+  h1 {
+    border-bottom: 3px solid var(--secondary);
+    padding-bottom: 0.4rem;
+    width: fit-content;
+    max-width: 100%;
+  }
+  h2 {
+    margin-top: 2.2rem;
+    padding: 0.15rem 0 0.15rem 0.75rem;
+    border-left: 4px solid var(--secondary);
+  }
+  table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    border-radius: 8px;
+    border: 1px solid var(--lightgray);
+    th {
+      background: var(--highlight);
+    }
+  }
+  pre {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+}
+
+// ------------------------------------------------------------
+// 7. TRANG FOLDER / TAG: danh sách bài thành card
+// ------------------------------------------------------------
+.page-listing {
+  ul.section-ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 0.9rem;
+  }
+  li.section-li {
+    margin: 0;
+    padding: 0.9rem 1rem;
+    min-width: 0;
+    border: 1px solid var(--lightgray);
+    border-top: 3px solid var(--secondary);
+    border-radius: 10px;
+    background: var(--light);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px color-mix(in srgb, var(--dark) 12%, transparent);
+    }
+    h3 {
+      margin: 0;
+      overflow-wrap: anywhere;
+    }
+  }
+}
+
+// ------------------------------------------------------------
+// 8. GRAPH (màu theo bảng màu của site)
+// ------------------------------------------------------------
 .graph {
   & > .graph-outer {
     height: 280px;
     border-radius: 8px;
     border: 1px solid var(--lightgray);
-    background: radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.04), transparent 75%);
+    background: radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--secondary) 6%, transparent), transparent 75%);
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
     &:hover {
       border-color: var(--secondary);
-      box-shadow: 0 4px 14px rgba(56, 189, 248, 0.12);
+      box-shadow: 0 4px 14px color-mix(in srgb, var(--secondary) 18%, transparent);
     }
   }
 }
@@ -62,180 +212,55 @@ h3 a.internal {
   & > .global-graph-container {
     border-radius: 8px !important;
     border: 1px solid var(--secondary) !important;
-    box-shadow: 0 16px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(56, 189, 248, 0.15) !important;
+    box-shadow: 0 16px 50px rgba(0, 0, 0, 0.4), 0 0 30px color-mix(in srgb, var(--secondary) 20%, transparent) !important;
   }
 }
 
-// ============================================================
-// 5. SIDEBAR TRÁI: giống mục lục của wiki kỹ thuật
-// ============================================================
-.left.sidebar {
-  .page-title {
-    font-weight: 800;
-    letter-spacing: -0.01em;
-  }
-
-  .explorer {
-    .folder-title,
-    .folder-button span {
-      font-weight: 700;
-      text-transform: uppercase;
-      font-size: 0.72rem;
-      letter-spacing: 0.08em;
-      color: var(--gray);
-    }
-    a {
-      border-radius: 6px;
-      padding: 2px 6px;
-      transition: background 0.15s ease, color 0.15s ease;
-      &:hover {
-        background: var(--highlight);
-        color: var(--secondary);
-      }
-      &.active {
-        background: var(--highlight);
-        color: var(--secondary);
-        font-weight: 600;
-      }
-    }
-  }
-}
-
-// ============================================================
-// 6. TRANG BÀI VIẾT: đọc thoải mái như cẩm nang
-// ============================================================
-article {
-  h1 {
-    border-bottom: 3px solid var(--secondary);
-    padding-bottom: 0.4rem;
-    width: fit-content;
-  }
-  h2 {
-    margin-top: 2.2rem;
-    padding-bottom: 0.25rem;
-    border-bottom: 1px solid var(--lightgray);
-  }
-  table {
-    border-radius: 8px;
-    overflow: hidden;
-    border: 1px solid var(--lightgray);
-    th {
-      background: var(--highlight);
-    }
-  }
-}
-
-// ============================================================
-// 7. TRANG FOLDER: danh sách bài tự thành card
-//    (Quartz tự sinh trang này, không cần viết gì thêm)
-// ============================================================
-.page-listing {
-  ul.section-ul {
-    list-style: none;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 0.9rem;
-  }
-  li.section-li {
-    margin: 0;
-    padding: 0.9rem 1rem;
-    border: 1px solid var(--lightgray);
-    border-radius: 12px;
-    background: var(--light);
-    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
-    &:hover {
-      transform: translateY(-2px);
-      border-color: var(--secondary);
-      box-shadow: 0 8px 22px rgba(15, 23, 42, 0.1);
-    }
-    h3 {
-      margin: 0;
-    }
-  }
-}
-
-// ============================================================
-// 8. TRANG CHỦ: chỉ đổi layout, giữ nguyên nội dung index.md
-// ============================================================
-body[data-slug="index"] {
-  // Bỏ cột phải (graph, backlinks, mục lục) cho trang chủ thoáng
-  .right.sidebar {
-    display: none !important;
-  }
-  #quartz-body {
-    grid-template-columns: 300px minmax(0, 1fr) !important;
-  }
-  .page {
-    max-width: 1400px;
-  }
-
-  article {
-    > h1 {
-      font-size: 2.2rem;
-    }
-    // Mỗi mục h2 có thanh màu bên trái, giống phần chương của wiki kỹ thuật
-    h2 {
-      border-bottom: none;
-      border-left: 4px solid var(--secondary);
-      padding: 0.2rem 0 0.2rem 0.75rem;
-      margin-top: 2.2rem;
-    }
-    ul {
-      columns: 2 260px;
-      column-gap: 2rem;
-    }
-  }
-}
-
-// ============================================================
-// 9. HEADER (thanh đầu trang) và FOOTER
-// ============================================================
-.page header {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin: 0 0 1rem;
-  padding: 0.7rem 1rem;
-  border-bottom: 1px solid var(--lightgray);
-  background: color-mix(in srgb, var(--light) 88%, transparent);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-
-  // tên site bên trái
-  .page-title {
-    margin: 0;
-    font-weight: 800;
-    letter-spacing: -0.01em;
-    white-space: nowrap;
-  }
-  // ô tìm kiếm kéo dài ở giữa
-  .search {
-    flex: 1 1 auto;
-    max-width: 520px;
-    margin: 0 auto;
-  }
-  // nút sáng/tối, chế độ đọc dồn sang phải
-  .darkmode,
-  .readermode {
-    flex: 0 0 auto;
-  }
-}
-
+// ------------------------------------------------------------
+// 9. FOOTER
+// ------------------------------------------------------------
 .page footer {
   margin-top: 3rem;
   padding: 1.2rem 0;
-  border-top: 1px solid var(--lightgray);
+  border-top: 2px solid var(--secondary);
   color: var(--gray);
   font-size: 0.85rem;
   ul {
     display: flex;
-    gap: 1.2rem;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.2rem;
     padding: 0;
     margin: 0.4rem 0 0;
     list-style: none;
+  }
+}
+
+// ------------------------------------------------------------
+// 10. MOBILE (màn hình dưới 800px, khớp breakpoint của Quartz)
+// ------------------------------------------------------------
+@media (max-width: 800px) {
+  // header không dính nữa để khỏi chiếm chỗ; tìm kiếm xuống hàng riêng
+  .page header {
+    position: static;
+    padding: 0.5rem 0;
+    .page-title {
+      flex: 1 1 auto;
+    }
+    .search {
+      order: 3;
+      flex: 1 1 100%;
+      max-width: none;
+    }
+  }
+  article {
+    h1 {
+      font-size: 1.7rem;
+    }
+    h2 {
+      margin-top: 1.6rem;
+    }
+  }
+  .page-listing ul.section-ul {
+    grid-template-columns: 1fr;
   }
 }
